@@ -26,7 +26,7 @@ Then, run the server,
 (try `chmod 777 ./bin/server` incase it doesn't work)
 
 
-# Installing new node modules
+# Installing and using new node modules
 
 ```bash
   # Using Yarn
