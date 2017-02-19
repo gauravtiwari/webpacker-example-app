@@ -1,6 +1,10 @@
 {
   "name": "webpacker",
   "private": true,
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.9"
+  },
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.23.1",

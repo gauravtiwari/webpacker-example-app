@@ -1,5 +1,9 @@
 {
   "name": "webpacker-example-app",
+  "engines": {
+    "node": "6.7.0",
+    "npm": "3.10.9"
+  },
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gaurav Tiwari <gaurav@gauravtiwari.co.uk>",
