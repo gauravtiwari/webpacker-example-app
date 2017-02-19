@@ -1,24 +1,39 @@
-# README
+# Rails Webpacker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Demo app that showcases Rails on webpack and yarn using Webpacker gem (default setup in upcoming Rails 5.1)
 
-Things you may want to cover:
+* [Webpacker](https://github.com/rails/webpacker)
+* [PR](https://github.com/rails/rails/pull/26836)
 
-* Ruby version
+# Running in development
 
-* System dependencies
+The app is using [foreman](https://github.com/ddollar/foreman), famous process manager. Checkout the `Procfile.dev` in app root for more information.
 
-* Configuration
+```bash
+  git clone git@github.com:gauravtiwari/example-webpacker-app.git
+  cd example-webpacker-app
+  bundle install
+  brew install yarn # (if not installed)
+  ./bin/yarn install
+```
 
-* Database creation
+Then, run the server,
 
-* Database initialization
+```bash
+  ./bin/server
+```
+(try `chmod 777 ./bin/server` incase it doesn't work)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+# Installing new node modules
 
-* Deployment instructions
+```bash
+  # Using Yarn
+  ./bin/yarn add material-ui
+```
 
-* ...
+Then, import it in your component,
+
+```js
+  import { Card } from 'material-ui/Card';
+```
