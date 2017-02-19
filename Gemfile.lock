@@ -140,8 +140,6 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
-    rename (1.0.2)
-      rails (>= 3.0.0)
     ruby_dep (1.5.0)
     sass (3.4.23)
     spring (2.0.1)
@@ -188,7 +186,6 @@ DEPENDENCIES
   pg
   puma (~> 3.0)
   rails!
-  rename
   sass-rails!
   spring
   spring-watcher-listen (~> 2.0.0)
