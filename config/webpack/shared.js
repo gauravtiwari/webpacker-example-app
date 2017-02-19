@@ -43,6 +43,11 @@ config = {
           runner: 'DISABLE_SPRING=1 ../bin/rails runner'
         }
       },
+
+      {
+        test: /\.sass$/,
+        loader: ['style-loader', 'css-loader', 'sass-loader'],
+      },
     ]
   },
 
