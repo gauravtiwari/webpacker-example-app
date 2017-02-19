@@ -18,7 +18,7 @@ The app is using [foreman](https://github.com/ddollar/foreman), famous process m
   ./bin/yarn install
 ```
 
-Then, run the server,
+Then, run the server using this binstub,
 
 ```bash
   ./bin/server
