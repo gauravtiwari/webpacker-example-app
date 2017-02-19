@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/gauravtiwari/webpacker.git
+  revision: b800eed170824ac531d8087b4bd266cc5ce71d09
+  specs:
+    webpacker (0.2)
+      activesupport (>= 5.0)
+      multi_json (~> 1.2)
+      railties (>= 5.0)
+
+GIT
   remote: https://github.com/rails/arel.git
   revision: 208fe3690d840d0ee65b1395a891886e58fd3f4b
   specs:
@@ -73,15 +82,6 @@ GIT
       sass (~> 3.4)
       sprockets (~> 4.x)
       sprockets-rails (< 4.0)
-
-GIT
-  remote: https://github.com/rails/webpacker.git
-  revision: 7bae1f9a6249752a83fe94a7a3aec51a955e9c25
-  specs:
-    webpacker (0.2)
-      activesupport (>= 5.0)
-      multi_json (~> 1.2)
-      railties (>= 5.0)
 
 GEM
   remote: https://rubygems.org/
