@@ -4,6 +4,7 @@ Demo app that showcases Rails on webpack and yarn using Webpacker gem (default s
 
 * [Webpacker](https://github.com/rails/webpacker)
 * [PR](https://github.com/rails/rails/pull/26836)
+* [Blog Post](https://medium.com/@gauravtiwari/introducing-webpacker-7136d66cddfb)
 
 # Running in development
 
