@@ -30,7 +30,8 @@ config = {
         loader: 'babel-loader',
         options: {
           presets: [
-            [ 'latest', { 'es2015': { 'modules': false } } ]
+            [ 'latest', { 'es2015': { 'modules': false } } ],
+            ['env', { "modules": false }],
           ]
         }
       },
