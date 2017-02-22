@@ -23,3 +23,5 @@
 .byebug_history
 /public/packs
 /node_modules/*
+/public/packs
+/node_modules

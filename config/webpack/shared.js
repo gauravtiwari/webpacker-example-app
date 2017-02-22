@@ -1,50 +1,47 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
-var path = require('path')
-var process = require('process')
-var glob = require('glob')
-var extname = require('path-complete-extname')
-var distPath = process.env.WEBPACK_DIST_PATH
+var path = require('path');
+var glob = require('glob');
+var extname = require('path-complete-extname');
+var distPath = process.env.WEBPACK_DIST_PATH;
 
-if(distPath === undefined) {
+if (distPath === undefined) {
   distPath = 'packs'
 }
 
-config = {
-  entry: glob.sync(path.join('..', 'app', 'javascript', 'packs', '*.js*')).reduce(
+var config = {
+  entry: glob.sync(path.resolve('app', 'javascript', 'packs', '*.js*')).reduce(
     function(map, entry) {
-      var basename = path.basename(entry, extname(entry))
-      map[basename] = entry
-      return map
+      basename = path.basename(entry, extname(entry))
+      map[basename] = path.resolve(entry);
+      return map;
     }, {}
   ),
 
-  output: { filename: '[name].js', path: path.resolve('..', 'public', distPath) },
+  output: { filename: '[name].js', path: path.resolve('public', distPath) },
 
   module: {
     rules: [
-      { test: /\.coffee(.erb)?$/, loader: "coffee-loader" },
+      { test: /\.coffee(.erb)?$/, loader: 'coffee-loader' },
       {
-        test: /\.js(.erb)?$/,
+        test: /\.jsx?(.erb)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           presets: [
-            [ 'latest', { 'es2015': { 'modules': false } } ],
+            'react',  ['latest', { 'es2015': { 'modules': false } }],
             ['env', { "modules": false }],
-          ]
+          ],
         }
       },
       {
-        test: /.erb$/,
+        test: /\.erb$/,
         enforce: 'pre',
-        exclude: /node_modules/,
         loader: 'rails-erb-loader',
         options: {
-          runner: 'DISABLE_SPRING=1 ../bin/rails runner'
+          runner:  'bin/rails runner'
         }
       },
-
       {
         test: /\.sass$/,
         loader: ['style-loader', 'css-loader', 'sass-loader'],
@@ -55,15 +52,19 @@ config = {
   plugins: [],
 
   resolve: {
+    alias: {
+      'ie': 'component-ie',
+    },
+
     extensions: [ '.js', '.coffee' ],
     modules: [
-      path.resolve('../app/javascript'),
-      path.resolve('../vendor/node_modules')
+      path.resolve('app/javascript'),
+      path.resolve('node_modules')
     ]
   },
 
   resolveLoader: {
-    modules: [ path.resolve('../vendor/node_modules') ]
+    modules: [ path.resolve('node_modules') ]
   }
 }
 
