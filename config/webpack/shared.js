@@ -1,14 +1,33 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
 const webpack = require('webpack')
+var merge   = require('webpack-merge');
 const path = require('path')
 const process = require('process')
 const glob = require('glob')
 const extname = require('path-complete-extname')
+
+const isDevServer = process.argv.find(v => v.includes('webpack-dev-server'));
 let distDir = process.env.WEBPACK_DIST_DIR
 
 if (distDir === undefined) {
   distDir = 'packs'
+}
+
+const fileLoaderConfig = {
+  loader: 'url-loader',
+  options: {
+    limit: 3000,
+    publicPath: `/${distDir}/`,
+    name: '[name]-[hash].[ext]',
+  }
+}
+
+if (isDevServer) {
+  Object.assign(
+    fileLoaderConfig.options,
+    { publicPath: 'http://localhost:8080/' }
+  )
 }
 
 config = {
@@ -21,7 +40,6 @@ config = {
   output: {
     filename: '[name].js',
     path: path.resolve('public', distDir),
-    publicPath: 'http://localhost:8080/'
   },
 
   module: {
@@ -58,14 +76,7 @@ config = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [{
-          loader: 'url-loader',
-          options: {
-            publicPath: `/${distDir}/`,
-            limit: 3000,
-            name: '[name]-[hash].[ext]'
-          }
-        }],
+        use: [fileLoaderConfig],
       },
     ]
   },

@@ -18,6 +18,12 @@ module.exports = merge(sharedConfig.config, {
     pathinfo: true
   },
 
+  devServer: {
+    compress: true,
+    port: 8080,
+    publicPath: 'http://localhost:8080/'
+  },
+
   plugins: [
     new webpack.LoaderOptionsPlugin({
       debug: true,
