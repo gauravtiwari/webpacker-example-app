@@ -9,7 +9,7 @@ module ApplicationHelper
     if config[:dev_server_host].present?
       "#{config[:dev_server_host]}/#{name}.css"
     elsif config[:digesting]
-      File.join(dist_path, digested_filename)
+      File.join(dist_path, Webpacker::Digests.lookup(name))
     else
       File.join(dist_path, "#{name}.css")
     end
@@ -17,10 +17,6 @@ module ApplicationHelper
 
   def config
     Rails.configuration.x.webpacker
-  end
-
-  def digested_filename
-    Webpacker::Digests.lookup(name)
   end
 
   def dist_path
