@@ -2,6 +2,7 @@
 
 const webpack = require('webpack')
 const merge   = require('webpack-merge')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const sharedConfig = require('./shared.js')
 let distDir = process.env.WEBPACK_DIST_DIR
