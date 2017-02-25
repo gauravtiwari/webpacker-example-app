@@ -1,9 +1,11 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
-var webpack = require('webpack')
-var merge   = require('webpack-merge')
+var path    = require('path');
+var webpack = require('webpack');
+var merge   = require('webpack-merge');
+var OptimizeJsPlugin = require('optimize-js-plugin');
 
-var sharedConfig = require('./shared.js')
+var sharedConfig = require('./shared.js');
 
 module.exports = merge(sharedConfig.config, {
   devtool: 'sourcemap',
@@ -18,7 +20,11 @@ module.exports = merge(sharedConfig.config, {
 
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      debug: true
+      debug: true,
+    }),
+
+    new OptimizeJsPlugin({
+      sourceMap: false
     })
   ]
-})
+});

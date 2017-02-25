@@ -1,61 +1,80 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
-var path = require('path');
-var glob = require('glob');
-var extname = require('path-complete-extname');
-var distPath = process.env.WEBPACK_DIST_PATH;
+const webpack = require('webpack')
+const path = require('path')
+const process = require('process')
+const glob = require('glob')
+const extname = require('path-complete-extname')
+let distDir = process.env.WEBPACK_DIST_DIR
 
-if (distPath === undefined) {
-  distPath = 'packs'
+if (distDir === undefined) {
+  distDir = 'packs'
 }
 
-var config = {
-  entry: glob.sync(path.resolve('app', 'javascript', 'packs', '*.js*')).reduce(
-    function(map, entry) {
-      basename = path.basename(entry, extname(entry))
-      map[basename] = path.resolve(entry);
-      return map;
-    }, {}
-  ),
+config = {
+  entry: glob.sync(path.join('app', 'javascript', 'packs', '*.js*')).reduce((map, entry) => {
+    const basename = path.basename(entry, extname(entry))
+    map[basename] = path.resolve(entry)
+    return map
+  }, {}),
 
-  output: { filename: '[name].js', path: path.resolve('public', distPath) },
+  output: {
+    filename: '[name].js',
+    path: path.resolve('public', distDir),
+    publicPath: 'http://localhost:8080/'
+  },
 
   module: {
     rules: [
-      { test: /\.coffee(.erb)?$/, loader: 'coffee-loader' },
+      { test: /\.coffee(\.erb)?$/, loader: "coffee-loader" },
       {
-        test: /\.jsx?(.erb)?$/,
+        test: /\.js(\.erb)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           presets: [
-            'react',  ['latest', { 'es2015': { 'modules': false } }],
-            ['env', { "modules": false }],
-          ],
+            [ 'latest', { 'es2015': { 'modules': false } } ]
+          ]
         }
       },
       {
         test: /\.erb$/,
         enforce: 'pre',
+        exclude: /node_modules/,
         loader: 'rails-erb-loader',
         options: {
-          runner:  'bin/rails runner'
+          runner: 'DISABLE_SPRING=1 bin/rails runner'
         }
       },
       {
         test: /\.sass$/,
-        loader: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }, {
+          loader: 'sass-loader'
+        }]
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            publicPath: `/${distDir}/`,
+            limit: 3000,
+            name: '[name].[ext]'
+          }
+        }],
       },
     ]
   },
 
-  plugins: [],
+  plugins: [
+    new webpack.EnvironmentPlugin(Object.keys(process.env))
+  ],
 
   resolve: {
-    alias: {
-      'ie': 'component-ie',
-    },
-
     extensions: [ '.js', '.coffee' ],
     modules: [
       path.resolve('app/javascript'),
@@ -69,6 +88,6 @@ var config = {
 }
 
 module.exports = {
-  distPath: distPath,
+  distDir: distDir,
   config: config
 }
