@@ -63,7 +63,7 @@ config = {
           options: {
             publicPath: `/${distDir}/`,
             limit: 3000,
-            name: '[name].[ext]'
+            name: '[name]-[hash].[ext]'
           }
         }],
       },
