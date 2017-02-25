@@ -16,9 +16,25 @@ module.exports = merge(sharedConfig.config, {
     publicPath: `/${distDir}/`,
   },
 
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [
+          Object.assign(
+            sharedConfig.fileLoaderConfig,
+            { name: '[name]-[hash].[ext]' }
+          )
+        ],
+      },
+    ]
+  },
+
   plugins: [
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-    })
+    }),
+
+    new ExtractTextPlugin('[name]-[hash].css')
   ]
 })

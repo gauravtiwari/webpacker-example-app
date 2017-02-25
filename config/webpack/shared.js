@@ -6,6 +6,7 @@ const path = require('path')
 const process = require('process')
 const glob = require('glob')
 const extname = require('path-complete-extname')
+const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const isDevServer = process.argv.find(v => v.includes('webpack-dev-server'));
 let distDir = process.env.WEBPACK_DIST_DIR
@@ -19,7 +20,7 @@ const fileLoaderConfig = {
   options: {
     limit: 3000,
     publicPath: `/${distDir}/`,
-    name: '[name]-[hash].[ext]',
+    name: '[name].[ext]',
   }
 }
 
@@ -65,24 +66,22 @@ config = {
         }
       },
       {
-        test: /\.sass$/,
-        use: [{
-          loader: 'style-loader'
-        }, {
-          loader: 'css-loader'
-        }, {
-          loader: 'sass-loader'
-        }]
-      },
-      {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [fileLoaderConfig],
+      },
+      {
+        test: /\.sass$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       },
     ]
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(Object.keys(process.env))
+    new webpack.EnvironmentPlugin(Object.keys(process.env)),
+    new ExtractTextPlugin('[name].css')
   ],
 
   resolve: {
@@ -99,6 +98,7 @@ config = {
 }
 
 module.exports = {
-  distDir: distDir,
-  config: config
+  distDir,
+  config,
+  fileLoaderConfig,
 }
