@@ -1,7 +1,6 @@
 require 'webpack/source'
 
 module ApplicationHelper
-  class ManifestError < StandardError; end
   def asset_pack_tag(filename, **options)
     name, extension = filename.split('.')
 
