@@ -1,9 +1,6 @@
 Rails.application.configure do
   # Make javascript_pack_tag lookup digest hash to enable long-term caching
   config.x.webpacker[:digesting] = true
-  config.x.webpacker[:digests_path] = Rails.root.join('public', 'packs', 'manifest.json')
-
-  # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
   config.cache_classes = true
