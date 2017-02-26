@@ -1,25 +1,33 @@
+require 'webpack/source'
+
 module ApplicationHelper
-  def stylesheet_pack_tag(name, **options)
-    stylesheet_link_tag(path(name), **options)
-  end
+  class ManifestError < StandardError; end
+  def asset_pack_tag(filename, **options)
+    name, extension = filename.split('.')
 
-  private
+    if extension.nil?
+      raise StandardError.new("Specify asset type. \
+        For example, rails.png or rails.js"
+      )
+    end
 
-  def path(name)
-    if config[:dev_server_host].present?
-      "#{config[:dev_server_host]}/#{name}.css"
-    elsif config[:digesting]
-      File.join(dist_path, Webpacker::Digests.lookup(name))
-    else
-      File.join(dist_path, "#{name}.css")
+    unless allowed_extensions.include?(extension)
+      raise StandardError.new("Invalid asset type.Supported formats are \
+        #{allowed_extensions.to_sentence}"
+      )
+    end
+
+    case extension
+    when 'js'
+      javascript_include_tag(Webpack::Source.new(filename).path, **options)
+    when 'css'
+      stylesheet_link_tag(Webpack::Source.new(filename).path, **options)
+    when 'png', 'jpeg', 'JPEG', 'gif', 'svg', 'TIFF'
+      image_tag(Webpack::Source.new(filename).path, **options)
     end
   end
 
-  def config
-    Rails.configuration.x.webpacker
-  end
-
-  def dist_path
-    config[:packs_dist_path]
+  def allowed_extensions
+    ['js', 'css', 'png', 'jpeg', 'JPEG', 'gif', 'svg', 'TIFF'].freeze
   end
 end
