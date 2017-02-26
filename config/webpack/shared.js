@@ -88,6 +88,7 @@ config = {
     new webpack.EnvironmentPlugin(Object.keys(process.env)),
     new ExtractTextPlugin('[name].css'),
     new ManifestPlugin({
+      fileName: 'digests.json',
       publicPath: `/${distDir}/`
     }),
   ],
