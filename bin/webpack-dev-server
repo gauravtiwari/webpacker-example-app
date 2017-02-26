@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+require 'shellwords'
 
 ENV['RAILS_ENV'] ||= 'development'
 RAILS_ENV   = ENV['RAILS_ENV']
