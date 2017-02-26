@@ -23,6 +23,6 @@ class Webpack::Source
   end
 
   def pack_path
-    Webpacker::Manifest.lookup(filename)
+    Webpack::Manifest.new(config.x.webpacker[:digests_path]).lookup(filename)
   end
 end
