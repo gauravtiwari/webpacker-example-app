@@ -7,20 +7,15 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const sharedConfig = require('./shared.js')
 
 module.exports = merge(sharedConfig.config, {
-  output: {
-    filename: '[name]-[chunkhash].js',
-    publicPath: `/${sharedConfig.distDir}/`,
-  },
+  output: { filename: '[name]-[chunkhash].js' },
 
   module: {
     rules: [
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [{
-          loader: 'url-loader',
+          loader: 'file-loader',
           options: {
-            limit: 3000,
-            publicPath: `/${sharedConfig.distDir}/`,
             name: '[name]-[hash].[ext]',
           }
         }],

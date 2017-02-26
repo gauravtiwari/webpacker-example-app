@@ -17,7 +17,7 @@ if (distDir === undefined) {
 }
 
 const fileLoaderConfig = {
-  loader: 'url-loader',
+  loader: 'file-loader',
   options: {
     limit: 3000,
     publicPath: `/${distDir}/`,
