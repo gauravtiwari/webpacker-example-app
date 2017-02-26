@@ -11,7 +11,7 @@ class Webpack::Source
     if config[:dev_server_host].present?
       "#{config[:dev_server_host]}/#{filename}"
     elsif config[:digesting]
-      Webpack::Manifest.new(config[:digests_path]).lookup(filename)
+      Webpacker::Digests.new(config[:digests_path]).lookup(filename)
     else
       File.join(config[:packs_dist_path], filename)
     end
