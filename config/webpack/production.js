@@ -34,5 +34,3 @@ module.exports = merge(sharedConfig.config, {
     new ExtractTextPlugin('[name]-[hash].css')
   ]
 })
-
-console.warn(sharedConfig.config.module.rules)
