@@ -8,21 +8,18 @@ class Webpack::Source
   end
 
   def path
-    return "#{config[:dev_server_host]}/#{filename}" if dev_server?
-    pack_path
+    if config[:dev_server_host].present?
+      "#{config[:dev_server_host]}/#{filename}"
+    elsif config[:digesting]
+      Webpack::Manifest.new(config[:digests_path]).lookup(filename)
+    else
+      File.join(config[:packs_dist_path], filename)
+    end
   end
 
   private
 
   def config
     Rails.configuration.x.webpacker
-  end
-
-  def dev_server?
-    config[:dev_server_host].present?
-  end
-
-  def pack_path
-    Webpack::Manifest.new(config[:digests_path]).lookup(filename)
   end
 end
