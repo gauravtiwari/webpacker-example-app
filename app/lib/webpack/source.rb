@@ -1,5 +1,3 @@
-require_relative 'manifest'
-
 class Webpack::Source
   attr_accessor :filename
 
