@@ -1,5 +1,5 @@
 // Initialize the counter code when DOM is ready
-import './styles/style.sass';
+import '../../assets/stylesheets/style.sass';
 import counter from './components/counter';
 
 document.addEventListener('DOMContentLoaded', () => {
