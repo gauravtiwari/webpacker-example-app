@@ -6,22 +6,24 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const sharedConfig = require('./shared.js')
 
+const newRules = sharedConfig.config.module.rules.filter((obj) => {
+  return !obj.test.test('.png');
+})
+
+newRules.push({
+  test: /\.(jpe?g|png|gif|svg)$/i,
+  use: [{
+    loader: 'file-loader',
+    options: {
+      name: '[name]-[hash].[ext]',
+    }
+  }],
+})
+
+sharedConfig.config.module.rules = newRules
+
 module.exports = merge(sharedConfig.config, {
   output: { filename: '[name]-[chunkhash].js' },
-
-  module: {
-    rules: [
-      {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name]-[hash].[ext]',
-          }
-        }],
-      }
-    ]
-  },
 
   plugins: [
     new webpack.LoaderOptionsPlugin({
@@ -31,3 +33,5 @@ module.exports = merge(sharedConfig.config, {
     new ExtractTextPlugin('[name]-[hash].css')
   ]
 })
+
+console.warn(sharedConfig.config.module.rules)
