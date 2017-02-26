@@ -15,6 +15,7 @@ newRules.push({
   use: [{
     loader: 'file-loader',
     options: {
+      publicPath: `/${distDir}/`,
       name: '[name]-[hash].[ext]',
     }
   }],
