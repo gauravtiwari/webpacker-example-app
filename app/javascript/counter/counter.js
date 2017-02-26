@@ -4,6 +4,7 @@
 import clockIcon from './clock.png';
 const incrementNode = document.getElementById('increment');
 const decrementNode = document.getElementById('decrement');
+const inputNode = document.getElementById('counter');
 const iconNode = document.getElementById('icon');
 
 const counter = {
