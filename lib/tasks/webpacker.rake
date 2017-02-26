@@ -10,7 +10,7 @@ namespace :webpacker do
 
     digests_path = Rails.application.config.x.webpacker[:digests_path]
     packs_path = Rails.root.join('public', dist_dir) || File.dirname(digests_path)
-    packs_digests_path = digests_path || Rails.root.join(packs_path, 'manifest.json')
+    packs_digests_path = digests_path || Rails.root.join(packs_path, 'digests.json')
 
     webpack_digests = JSON.parse(File.read(packs_digests_path))
 
