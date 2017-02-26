@@ -12,7 +12,7 @@ module ApplicationHelper
     end
 
     unless allowed_extensions.include?(extension)
-      raise StandardError.new("Invalid asset type.Supported formats are \
+      raise StandardError.new("Invalid asset type. Supported formats are \
         #{allowed_extensions.to_sentence}"
       )
     end
@@ -22,12 +22,12 @@ module ApplicationHelper
       javascript_include_tag(Webpack::Source.new(filename).path, **options)
     when 'css'
       stylesheet_link_tag(Webpack::Source.new(filename).path, **options)
-    when 'png', 'jpeg', 'JPEG', 'gif', 'svg', 'TIFF'
+    when 'png', 'jpeg', 'JPEG', 'gif', 'svg', 'TIFF', 'tiff' 'bmp'
       image_tag(Webpack::Source.new(filename).path, **options)
     end
   end
 
   def allowed_extensions
-    ['js', 'css', 'png', 'jpeg', 'JPEG', 'gif', 'svg', 'TIFF'].freeze
+    ['js', 'css', 'png', 'jpeg', 'JPEG', 'gif', 'svg', 'TIFF', 'tiff', 'bmp'].freeze
   end
 end
