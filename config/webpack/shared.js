@@ -71,6 +71,10 @@ config = {
         use: [fileLoaderConfig],
       },
       {
+        test: /\.(eot|svg|ttf|woff|woff2)$/i,
+        use: [fileLoaderConfig],
+      },
+      {
         test: /\.sass$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
