@@ -1,7 +1,7 @@
 // A simple counter example
 // The setup will be more complicated in modern apps built using React
 
-import clockIcon from './clock.png';
+import clockIcon from '../images/clock.png';
 const incrementNode = document.getElementById('increment');
 const decrementNode = document.getElementById('decrement');
 const inputNode = document.getElementById('counter');
