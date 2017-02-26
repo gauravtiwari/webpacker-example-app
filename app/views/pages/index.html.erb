@@ -1,8 +1,11 @@
 <div class="counter-wrapper">
   <% # Using javascript %>
-  <div id="icon"></div>
+  <div class="header-image">
+    <p>Javascript</p>
+    <span id="icon"></span>
+  </div>
 
-  <h1>Counter</h1>
+  <h1>Counter (vanilla js)</h1>
   <form class='counter'>
     <input type="number" name="counter" id='counter' value='0' />
     <button id='increment'>Increment</button>
@@ -10,7 +13,10 @@
   </form>
 
   <% # Using ERB %>
-  <%= asset_pack_tag 'clock.png' %>
+  <div class="footer-image">
+    <p>ERB</p>
+    <%= asset_pack_tag 'clock.png' %>
+  </div>
 </div>
 
 <%= asset_pack_tag 'counter.js' %>
