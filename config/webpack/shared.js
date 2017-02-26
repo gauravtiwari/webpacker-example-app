@@ -1,12 +1,13 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
 const webpack = require('webpack')
-var merge   = require('webpack-merge');
+const merge   = require('webpack-merge');
 const path = require('path')
 const process = require('process')
 const glob = require('glob')
 const extname = require('path-complete-extname')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 const isDevServer = process.argv.find(v => v.includes('webpack-dev-server'));
 let distDir = process.env.WEBPACK_DIST_DIR
@@ -81,7 +82,10 @@ config = {
 
   plugins: [
     new webpack.EnvironmentPlugin(Object.keys(process.env)),
-    new ExtractTextPlugin('[name].css')
+    new ExtractTextPlugin('[name].css'),
+    new ManifestPlugin({
+      publicPath: `/${distDir}/`
+    }),
   ],
 
   resolve: {

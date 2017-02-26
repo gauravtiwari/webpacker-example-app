@@ -5,16 +5,27 @@ const merge   = require('webpack-merge')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const sharedConfig = require('./shared.js')
-let distDir = process.env.WEBPACK_DIST_DIR
-
-if (distDir === undefined) {
-  distDir = 'packs'
-}
 
 module.exports = merge(sharedConfig.config, {
   output: {
     filename: '[name]-[chunkhash].js',
-    publicPath: `/${distDir}/`,
+    publicPath: `/${sharedConfig.distDir}/`,
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 3000,
+            publicPath: `/${sharedConfig.distDir}/`,
+            name: '[name]-[hash].[ext]',
+          }
+        }],
+      }
+    ]
   },
 
   plugins: [
