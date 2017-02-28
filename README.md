@@ -24,7 +24,7 @@ The app is using [foreman](https://github.com/ddollar/foreman), famous process m
 
 ```bash
   git clone git@github.com:gauravtiwari/webpacker-example-app.git
-  cd example-webpacker-app
+  cd webpacker-example-app
   bundle install
   brew install yarn # (if not installed)
   ./bin/yarn install
