@@ -30,6 +30,8 @@ The app is using [foreman](https://github.com/ddollar/foreman), famous process m
   ./bin/yarn install
 ```
 
+Visit http://localhost:5000/
+
 Then, run the server using this binstub,
 
 ```bash
