@@ -30,14 +30,14 @@ The app is using [foreman](https://github.com/ddollar/foreman), famous process m
   ./bin/yarn install
 ```
 
-Visit http://localhost:5000/
-
 Then, run the server using this binstub,
 
 ```bash
   ./bin/server
 ```
 (try `chmod 777 ./bin/server` incase it doesn't work)
+
+Visit [http://localhost:5000/](http://localhost:5000/)
 
 
 # Installing and using new node modules
