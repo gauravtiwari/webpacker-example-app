@@ -21,7 +21,7 @@ Supports bundling
 The app is using [foreman](https://github.com/ddollar/foreman), famous process manager. Checkout the `Procfile.dev` in app root for more information.
 
 ```bash
-  git clone git@github.com:gauravtiwari/example-webpacker-app.git
+  git clone git@github.com:gauravtiwari/webpacker-example-app.git
   cd example-webpacker-app
   bundle install
   brew install yarn # (if not installed)
