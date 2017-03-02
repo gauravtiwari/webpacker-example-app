@@ -1,11 +1,8 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
-var path    = require('path');
-var webpack = require('webpack');
-var merge   = require('webpack-merge');
-var OptimizeJsPlugin = require('optimize-js-plugin');
-
-var sharedConfig = require('./shared.js');
+const webpack = require('webpack')
+const merge = require('webpack-merge')
+const sharedConfig = require('./shared.js')
 
 module.exports = merge(sharedConfig.config, {
   devtool: 'sourcemap',
@@ -19,18 +16,15 @@ module.exports = merge(sharedConfig.config, {
   },
 
   devServer: {
+    host: sharedConfig.devHost,
     compress: true,
-    port: 8080,
-    publicPath: 'http://localhost:8080/'
+    port: sharedConfig.devPort,
+    publicPath: `http://${sharedConfig.devHost}:${sharedConfig.devPort}/`
   },
 
   plugins: [
     new webpack.LoaderOptionsPlugin({
-      debug: true,
-    }),
-
-    new OptimizeJsPlugin({
-      sourceMap: false
+      debug: true
     })
   ]
-});
+})

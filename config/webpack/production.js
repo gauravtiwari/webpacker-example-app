@@ -1,51 +1,45 @@
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
 const webpack = require('webpack')
-const merge   = require('webpack-merge')
-const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const merge = require('webpack-merge')
+const CompressionPlugin = require('compression-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const sharedConfig = require('./shared.js')
 
-const newRules = sharedConfig.config.module.rules.filter((obj) => {
-  if (obj.test.test('.png') || obj.test.test('.eot')) {
+const productionRules = sharedConfig.config.module.rules.filter((obj) => {
+  if (obj.test.test('.png')) {
     return false
   }
 
-  return true;
+  return true
 })
 
-newRules.push({
-  test: /\.(jpe?g|png|gif|svg)$/i,
-  use: [{
-    loader: 'file-loader',
-    options: {
-      publicPath: `/${sharedConfig.distDir}/`,
-      name: '[name]-[hash].[ext]',
-    }
-  }],
+const productionfileLoaderConfig = sharedConfig.fileLoaderConfig
+productionfileLoaderConfig.options.name = '[name]-[hash].[ext]'
+
+const productionPlugins = sharedConfig.config.plugins.filter(plugin => (
+  plugin.filename === undefined
+))
+
+productionRules.push({
+  test: sharedConfig.fileLoaderExtensions,
+  use: productionfileLoaderConfig
 })
 
-newRules.push({
-  test: /\.(eot|svg|ttf|woff|woff2)$/i,
-  use: [{
-    loader: 'file-loader',
-    options: {
-      publicPath: `/${sharedConfig.distDir}/`,
-      name: '[name]-[hash].[ext]',
-    }
-  }],
-})
-
-sharedConfig.config.module.rules = newRules
+sharedConfig.config.module.rules = productionRules
+sharedConfig.config.plugins = productionPlugins
 
 module.exports = merge(sharedConfig.config, {
   output: { filename: '[name]-[chunkhash].js' },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-    }),
-
-    new ExtractTextPlugin('[name]-[hash].css')
+    new ExtractTextPlugin('[name]-[hash].css'),
+    new webpack.optimize.UglifyJsPlugin(),
+    new CompressionPlugin({
+      asset: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|jpeg|png|gif|svg|eot|svg|ttf|woff|woff2)$/
+    })
   ]
 })
