@@ -41,6 +41,17 @@ else
       value = value.strip.sub(/https?\:(\\\\|\/\/)(www.)?/,'').gsub('"', '')
       host, port = value.split(':')
 
+      if port.nil?
+        puts 'Invalid or no dev server port provided'
+        exit!
+      end
+
+      if !['localhost', '127.0.0.1'].include?(host)
+        puts 'Webpack dev server only supports localhost and 127.0.0.1' \
+        ". Invalid host #{host}"
+        exit!
+      end
+
       break
     end
   end

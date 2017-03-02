@@ -16,19 +16,22 @@ if (distDir === undefined) {
   distDir = 'packs'
 }
 
+let publicPath = `/${distDir}/`
+
 const fileLoaderExtensions = /\.(jpe?g|png|gif|svg|eot|svg|ttf|woff|woff2)$/i
 const fileLoaderConfig = {
   loader: 'file-loader',
   options: {
-    publicPath: `/${distDir}/`,
+    publicPath,
     name: '[name].[ext]'
   }
 }
 
 if (devHost && devPort) {
+  publicPath = `http://${devHost}:${devPort}/`
   Object.assign(
     fileLoaderConfig.options,
-    { publicPath: `http://${devHost}:${devPort}/` }
+    { publicPath }
   )
 }
 
@@ -86,7 +89,7 @@ const config = {
     new ExtractTextPlugin('[name].css'),
     new ManifestPlugin({
       fileName: 'digests.json',
-      publicPath: `/${distDir}/`
+      publicPath
     })
   ],
 
@@ -107,6 +110,7 @@ module.exports = {
   distDir,
   devHost,
   devPort,
+  publicPath,
   fileLoaderConfig,
   fileLoaderExtensions,
   config

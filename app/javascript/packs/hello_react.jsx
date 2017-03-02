@@ -5,7 +5,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import clockIcon from '../counter/images/clock.png';
-import './hello-react.sass';
+import './hello-react.sass'
 
 const Hello = props => (
   <div className="hello-react">

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 882e8bc725ebf8f5b7552a555e49c51be17a70a0
+  revision: 48c30fb9d6a552c6b0d61d1d0526dd5ffe8cc3e4
   branch: feature/static-assets
   specs:
     webpacker (1.0)
@@ -166,7 +166,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.1)
+    uglifier (3.1.2)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)

@@ -1,5 +1,4 @@
 // A simple counter example
-// The setup will be more complicated in modern apps built using React
 
 const incrementNode = document.getElementById('increment');
 const decrementNode = document.getElementById('decrement');

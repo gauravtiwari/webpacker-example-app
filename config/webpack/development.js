@@ -19,7 +19,7 @@ module.exports = merge(sharedConfig.config, {
     host: sharedConfig.devHost,
     compress: true,
     port: sharedConfig.devPort,
-    publicPath: `http://${sharedConfig.devHost}:${sharedConfig.devPort}/`
+    publicPath: sharedConfig.publicPath
   },
 
   plugins: [
