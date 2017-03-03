@@ -27,7 +27,7 @@ end
 group :production do
   gem 'pg'
   gem 'redis'
-  gem 'heroku-deflater', github: 'romanbsd/heroku-deflater'
+  #gem 'heroku-deflater', github: 'romanbsd/heroku-deflater'
 end
 
 group :development do
