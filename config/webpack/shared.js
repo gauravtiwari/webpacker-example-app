@@ -6,33 +6,10 @@ const process = require('process')
 const glob = require('glob')
 const extname = require('path-complete-extname')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
 
 let distDir = process.env.WEBPACK_DIST_DIR
-const devHost = process.env.DEV_HOST
-const devPort = process.env.DEV_PORT
-
 if (distDir === undefined) {
   distDir = 'packs'
-}
-
-let publicPath = `/${distDir}/`
-
-const fileLoaderExtensions = /\.(jpe?g|png|gif|svg|eot|svg|ttf|woff|woff2)$/i
-const fileLoaderConfig = {
-  loader: 'file-loader',
-  options: {
-    publicPath,
-    name: '[name].[ext]'
-  }
-}
-
-if (devHost && devPort) {
-  publicPath = `http://${devHost}:${devPort}/`
-  Object.assign(
-    fileLoaderConfig.options,
-    { publicPath }
-  )
 }
 
 const config = {
@@ -51,12 +28,11 @@ const config = {
     rules: [
       { test: /\.coffee(\.erb)?$/, loader: 'coffee-loader' },
       {
-        test: /\.jsx?(\.erb)?$/,
+        test: /\.jsx(\.erb)?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: {
           presets: [
-            'react',
             ['env', { modules: false }]
           ]
         }
@@ -71,10 +47,6 @@ const config = {
         }
       },
       {
-        test: fileLoaderExtensions,
-        use: [fileLoaderConfig]
-      },
-      {
         test: /\.(sass|css)$/i,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
@@ -85,12 +57,7 @@ const config = {
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(Object.keys(process.env)),
-    new ExtractTextPlugin('[name].css'),
-    new ManifestPlugin({
-      fileName: 'digests.json',
-      publicPath
-    })
+    new webpack.EnvironmentPlugin(Object.keys(process.env))
   ],
 
   resolve: {
@@ -108,10 +75,5 @@ const config = {
 
 module.exports = {
   distDir,
-  devHost,
-  devPort,
-  publicPath,
-  fileLoaderConfig,
-  fileLoaderExtensions,
   config
 }

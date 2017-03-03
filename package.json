@@ -1,8 +1,7 @@
 {
   "scripts": {
-    "postinstall" : "npm rebuild node-sass"
+    "postinstall": "npm rebuild node-sass"
   },
-
   "dependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",

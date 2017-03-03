@@ -42,7 +42,7 @@ else
       host, port = value.split(':')
 
       if port.nil?
-        puts 'Invalid or no dev server port provided'
+        puts 'Invalid or no port provided for webpack dev server'
         exit!
       end
 
