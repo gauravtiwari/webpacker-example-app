@@ -31,11 +31,14 @@ sharedConfig.config.module.rules = productionRules
 sharedConfig.config.plugins = productionPlugins
 
 module.exports = merge(sharedConfig.config, {
+  devtool: 'sourcemap',
   output: { filename: '[name]-[chunkhash].js' },
 
   plugins: [
     new ExtractTextPlugin('[name]-[hash].css'),
-    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
