@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 8d88882c91141f22052d17e095506c5667a0dbe3
+  revision: 48c040219f5776413632bfb8d4ff53fa97af8265
   branch: feature/static-assets
   specs:
     webpacker (1.0)
@@ -27,6 +27,13 @@ GIT
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+
+GIT
+  remote: https://github.com/romanbsd/heroku-deflater.git
+  revision: 3f0a360bfa4aea9159935201fff837fafdbe267f
+  specs:
+    heroku-deflater (0.6.3)
+      rack (>= 1.4.5)
 
 GEM
   remote: https://rubygems.org/
@@ -172,6 +179,7 @@ DEPENDENCIES
   byebug
   coffee-rails
   foreman
+  heroku-deflater!
   jbuilder
   listen (>= 3.0.5, < 3.2)
   pg

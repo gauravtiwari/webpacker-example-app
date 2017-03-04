@@ -1,15 +1,51 @@
 {
+  "name": "webpacker-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Integrates Webpack to manage application-like JavaScript in Rails",
+  "main": "app/javascript/packs/index.js",
   "scripts": {
+    "lint": "./node_modules/eslint/bin/eslint.js lib/ --fix",
+    "compile": "./bin/webpack",
+    "build": "NODE_ENV=production ./bin/webpack",
+    "server": "./bin/webpack-dev-server",
+    "watch": "./bin/webpack-watcher",
     "postinstall": "npm rebuild node-sass"
   },
+  "_comment": "Modify at will, but do not remove this config. Your app will break",
+  "config": {
+    "webpacker": {
+      "srcDir": "app/javascript",
+      "configDir": "config/webpack",
+      "nodeModulesDir": "node_modules",
+      "distDir": "packs",
+      "distPath": "public/packs",
+      "digestFile": "digests.json",
+      "static": true
+    },
+    "_comment": "Configure webpack-dev-server",
+    "devServer": {
+      "enabled": false,
+      "host": "localhost",
+      "port": "8080",
+      "compress": true
+    }
+  },
   "dependencies": {
+    "@angular/common": "^2.4.9",
+    "@angular/compiler": "^2.4.9",
+    "@angular/core": "^2.4.9",
+    "@angular/platform-browser": "^2.4.9",
+    "@angular/platform-browser-dynamic": "^2.4.9",
+    "axios": "^0.15.3",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
-    "babel-preset-env": "^1.1.11",
+    "babel-preset-env": "^1.2.0",
     "babel-preset-react": "^6.23.0",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.4",
     "compression-webpack-plugin": "^0.3.2",
+    "core-js": "^2.4.1",
     "css-loader": "^0.26.2",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.1",
@@ -19,11 +55,18 @@
     "rails-erb-loader": "^3.2.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "rxjs": "^5.2.0",
     "sass-loader": "^6.0.2",
     "style-loader": "^0.13.2",
+    "ts-loader": "^2.0.1",
+    "typescript": "^2.2.1",
+    "vue": "^2.2.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
     "webpack": "^2.2.1",
     "webpack-manifest-plugin": "^1.1.0",
-    "webpack-merge": "^3.0.0"
+    "webpack-merge": "^3.0.0",
+    "zone.js": "^0.7.7"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.4.1"

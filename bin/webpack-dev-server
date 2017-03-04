@@ -1,64 +1,41 @@
 #!/usr/bin/env ruby
+$stdout.sync = true
+
 require 'shellwords'
+require 'json'
 
 ENV['RAILS_ENV'] ||= 'development'
-RAILS_ENV   = ENV['RAILS_ENV']
+RAILS_ENV = ENV['RAILS_ENV']
 
 ENV['NODE_ENV'] ||= RAILS_ENV
-NODE_ENV    = ENV['NODE_ENV']
+NODE_ENV = ENV['NODE_ENV']
 
 APP_PATH = File.expand_path('../', __dir__)
 ESCAPED_APP_PATH = APP_PATH.shellescape
-SET_NODE_PATH  = "NODE_PATH=#{ESCAPED_APP_PATH}/node_modules"
-WEBPACKER_BIN  = "./node_modules/.bin/webpack-dev-server"
-WEBPACK_CONFIG = "#{ESCAPED_APP_PATH}/config/webpack/#{NODE_ENV}.js"
-RAILS_ENV_CONFIG = File.join("config", "environments", "#{RAILS_ENV}.rb")
 
-host  = 'localhost'
-port  = 8080
-config =  File.read(RAILS_ENV_CONFIG)
+config = begin
+  package_json = File.read(File.join(APP_PATH, 'package.json'))
+  JSON.parse(package_json)['config']
+rescue Errno::ENOENT
+  puts 'Package.json not found. Have you installed webpacker?'
+  puts 'Please run bundle exec rails webpacker:install to install webpacker'
+end
 
-if !config.include?('config.x.webpacker')
+NODE_MODULES_PATH = "#{File.join(ESCAPED_APP_PATH, config['webpacker']['nodeModulesDir'])}"
+WEBPACK_CONFIG_PATH = "#{File.join(ESCAPED_APP_PATH, config['webpacker']['configDir'])}"
+
+PACKS_PATH = "#{File.join(ESCAPED_APP_PATH, config['webpacker']['distPath'])}"
+WEBPACK_BIN  = "#{NODE_MODULES_PATH}/.bin/webpack-dev-server"
+WEBPACK_CONFIG = "#{WEBPACK_CONFIG_PATH}/development.hot.js"
+
+if config['devServer'] && !config['devServer']['enabled']
   puts "Warning: if you want to use webpack-dev-server, you need " \
-      "to tell Webpacker to serve asset packs from it. Please set " \
-      "config.x.webpacker[:dev_server_host] = 'http://#{host}:#{port}' "\
-      "#{RAILS_ENV_CONFIG}} \n\n"
-else
-  line_num ||= 0
-  config.each_line do |line|
-    line_num += 1
-
-    if line =~ /config.x.webpacker/
-      option, value = line.strip.split('=')
-
-      if option.include?('#')
-        puts "Warning: In order to tell webpacker to serve assets using " \
-        "webpack-dev-server, you need to uncommment this line " \
-        "# config.x.webpacker[:dev_server_host] in " \
-        "#{RAILS_ENV_CONFIG}:#{line_num} \n\n"
-      end
-
-      value = value.strip.sub(/https?\:(\\\\|\/\/)(www.)?/,'').gsub('"', '')
-      host, port = value.split(':')
-
-      if port.nil?
-        puts 'Invalid or no port provided for webpack dev server'
-        exit!
-      end
-
-      if !['localhost', '127.0.0.1'].include?(host)
-        puts 'Webpack dev server only supports localhost and 127.0.0.1' \
-        ". Invalid host #{host}"
-        exit!
-      end
-
-      break
-    end
-  end
+      "to tell Webpacker to serve asset packs from it. Please enable " \
+      "hot reloading in your package.json"
+  exit!
 end
 
 Dir.chdir(APP_PATH) do
-  exec "DEV_HOST=#{host} DEV_PORT=#{port} #{SET_NODE_PATH} #{WEBPACKER_BIN} " \
-  "--config #{WEBPACK_CONFIG} --content-base #{ESCAPED_APP_PATH}/public/packs"
-  " #{ARGV.join(" ")}"
+  exec "NODE_PATH=#{NODE_MODULES_PATH} #{WEBPACK_BIN} " \
+  "--config #{WEBPACK_CONFIG} --content-base #{PACKS_PATH} #{ARGV.join(" ")}"
 end
