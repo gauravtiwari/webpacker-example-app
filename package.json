@@ -25,7 +25,7 @@
     },
     "_comment": "Configure webpack-dev-server",
     "devServer": {
-      "enabled": false,
+      "enabled": true,
       "host": "localhost",
       "port": "8080",
       "compress": true
