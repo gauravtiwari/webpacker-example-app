@@ -1,3 +1,4 @@
+// Handles static asset integration - like sass and images
 // Note: You must restart bin/webpack-watcher for changes to take effect
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
