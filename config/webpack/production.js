@@ -5,11 +5,11 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const CompressionPlugin = require('compression-webpack-plugin')
 const sharedConfig = require('./shared.js')
-const { webpacker } = require('../../package.json').config
+const { webpacker } = require('../../package.json')
 
-if (webpacker.static) {
-  const staticConfig = require('./static.js')
-  sharedConfig.config = merge(sharedConfig.config, staticConfig)
+if (webpacker.assets) {
+  const assetsConfig = require('./assets.js')
+  sharedConfig.config = merge(sharedConfig.config, assetsConfig)
 }
 
 module.exports = merge(sharedConfig.config, {
@@ -20,7 +20,7 @@ module.exports = merge(sharedConfig.config, {
     new CompressionPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
-      test: /\.(js|css|jpeg|png|gif|svg|eot|svg|ttf|woff|woff2)$/
+      test: /\.(js|css|svg|eot|ttf|woff|woff2)$/
     })
   ]
 })

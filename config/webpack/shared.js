@@ -6,36 +6,16 @@ const process = require('process')
 const glob = require('glob')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const extname = require('path-complete-extname')
-const { webpacker } = require('../../package.json').config
+const { webpacker } = require('../../package.json')
 
-let distDir = webpacker.distDir
-let distPath = webpacker.distPath
-let srcDir = webpacker.srcDir
-let nodeModulesDir = webpacker.nodeModulesDir
-let digestFile = webpacker.digestFile
-
-if (!distDir) {
-  distDir = 'packs'
-}
-
-if (!srcDir) {
-  srcDir = 'app/javascript'
-}
-
-if (!distPath) {
-  distPath = 'public/packs'
-}
-
-if (!nodeModulesDir) {
-  nodeModulesDir = 'node_modules'
-}
-
-if (!digestFile) {
-  digestFile = 'digests.json'
-}
+const srcPath = webpacker.srcPath
+const distDir = webpacker.distDir
+const distPath = webpacker.distPath
+const nodeModulesPath = webpacker.nodeModulesPath
+const digestFileName = webpacker.digestFileName
 
 const config = {
-  entry: glob.sync(path.join(srcDir, distDir, '*.js*')).reduce(
+  entry: glob.sync(path.join(srcPath, distDir, '*.js*')).reduce(
     (map, entry) => {
       const basename = path.basename(entry, extname(entry))
       const localMap = map
@@ -48,13 +28,13 @@ const config = {
 
   module: {
     rules: [
+      { test: /.ts$/, loader: 'ts-loader' },
       {
         test: /.vue$/, loader: 'vue-loader',
         options: {
           loaders: { 'scss': 'vue-style-loader!css-loader!sass-loader', 'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'}
         }
       },
-      { test: /.ts$/, loader: 'ts-loader' },
       { test: /\.coffee(\.erb)?$/, loader: 'coffee-loader' },
       {
         test: /\.(js|jsx)?(\.erb)?$/,
@@ -82,7 +62,7 @@ const config = {
   plugins: [
     new webpack.EnvironmentPlugin(Object.keys(process.env)),
     new ManifestPlugin({
-      fileName: digestFile,
+      fileName: digestFileName,
       publicPath: `/${distDir}/`
     })
   ],
@@ -91,20 +71,20 @@ const config = {
     alias: { 'vue$':'vue/dist/vue.esm.js' },
     extensions: ['.js', '.coffee', '.ts'],
     modules: [
-      path.resolve(srcDir),
-      path.resolve(nodeModulesDir)
+      path.resolve(srcPath),
+      path.resolve(nodeModulesPath)
     ]
   },
 
   resolveLoader: {
-    modules: [path.resolve(nodeModulesDir)]
+    modules: [path.resolve(nodeModulesPath)]
   }
 }
 
 module.exports = {
+  srcPath,
   distDir,
   distPath,
-  srcDir,
-  nodeModulesDir,
+  nodeModulesPath,
   config
 }

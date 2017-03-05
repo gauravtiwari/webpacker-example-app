@@ -3,11 +3,11 @@
 
 const merge = require('webpack-merge')
 const sharedConfig = require('./shared.js')
-const { webpacker } = require('../../package.json').config
+const { webpacker } = require('../../package.json')
 
-if (webpacker.static) {
-  const staticConfig = require('./static.js')
-  sharedConfig.config = merge(sharedConfig.config, staticConfig)
+if (webpacker.assets) {
+  const assetsConfig = require('./assets.js')
+  sharedConfig.config = merge(sharedConfig.config, assetsConfig)
 }
 
 module.exports = merge(sharedConfig.config, {

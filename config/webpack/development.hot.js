@@ -3,7 +3,7 @@
 const merge = require('webpack-merge')
 const devConfig = require('./development.js')
 const sharedConfig = require('./shared.js')
-const { devServer } = require('../../package.json').config
+const { devServer } = require('../../package.json')
 
 module.exports = merge(devConfig, {
   devServer: {

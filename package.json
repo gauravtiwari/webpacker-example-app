@@ -12,24 +12,22 @@
     "watch": "./bin/webpack-watcher",
     "postinstall": "npm rebuild node-sass"
   },
-  "_comment": "Modify at will, but do not remove this config. Your app will break",
-  "config": {
-    "webpacker": {
-      "srcDir": "app/javascript",
-      "configDir": "config/webpack",
-      "nodeModulesDir": "node_modules",
-      "distDir": "packs",
-      "distPath": "public/packs",
-      "digestFile": "digests.json",
-      "static": true
-    },
-    "_comment": "Configure webpack-dev-server",
-    "devServer": {
-      "enabled": false,
-      "host": "localhost",
-      "port": "8080",
-      "compress": true
-    }
+  "_comment": "Configure webpack-dev-server",
+  "webpacker": {
+    "srcPath": "app/javascript",
+    "configPath": "config/webpack",
+    "nodeModulesPath": "node_modules",
+    "_comment": "If you rename distDir, please update distPath too",
+    "distDir": "packs",
+    "distPath": "public/packs",
+    "digestFileName": "digests.json",
+    "assets": true
+  },
+  "devServer": {
+    "enabled": false,
+    "host": "localhost",
+    "port": "8080",
+    "compress": true
   },
   "dependencies": {
     "@angular/common": "^2.4.9",
@@ -47,7 +45,7 @@
     "compression-webpack-plugin": "^0.3.2",
     "core-js": "^2.4.1",
     "css-loader": "^0.26.2",
-    "extract-text-webpack-plugin": "^2.0.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "glob": "^7.1.1",
     "node-sass": "^4.5.0",

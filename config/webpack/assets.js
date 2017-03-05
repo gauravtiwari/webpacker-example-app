@@ -4,7 +4,7 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const process = require('process')
 const sharedConfig = require('./shared.js')
-const { devServer } = require('../../package.json').config
+const { devServer } = require('../../package.json')
 
 const production = process.env.NODE_ENV === 'production'
 const hotServerAddr = `http://${devServer.host}:${devServer.port}/`
