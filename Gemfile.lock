@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 204d3d17575e0ec89a22d9fd06aa4240d53366dc
+  revision: 42d728ce23afc018843a1b98b4ad241e48362c14
   branch: feature/static-assets
   specs:
     webpacker (1.0)
