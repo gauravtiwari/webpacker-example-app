@@ -28,6 +28,7 @@ group :production do
   gem 'pg'
   gem 'redis'
   gem 'heroku-deflater', github: 'romanbsd/heroku-deflater'
+  gem 'rack-cors'
 end
 
 group :development do

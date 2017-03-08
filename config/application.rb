@@ -8,8 +8,15 @@ Bundler.require(*Rails.groups)
 
 module WebpackerExampleApp
   class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
+    if defined? Rack::Cors
+      Rails.configuration.middleware.insert_before 0, Rack::Cors do
+        allow do
+          origins %w[
+            https://webpacker-example-app.herokuapp.com
+          ]
+          resource '/packs/*'
+        end
+      end
+    end
   end
 end
