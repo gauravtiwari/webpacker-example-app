@@ -16,6 +16,7 @@ Supports bundling
 * Images
 * Fonts
 * Linking assets
+* CND - Cloudfront
 
 
 # Running in development
