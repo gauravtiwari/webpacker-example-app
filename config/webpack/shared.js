@@ -6,13 +6,13 @@ const process = require('process')
 const glob = require('glob')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const extname = require('path-complete-extname')
-const { webpacker } = require('../../package.json')
-
-const srcPath = webpacker.srcPath
-const distDir = webpacker.distDir
-const distPath = webpacker.distPath
-const nodeModulesPath = webpacker.nodeModulesPath
-const digestFileName = webpacker.digestFileName
+const {
+  srcPath,
+  distDir,
+  distPath,
+  nodeModulesPath,
+  manifestFileName
+} = require('../../package.json').webpacker
 
 const config = {
   entry: glob.sync(path.join(srcPath, distDir, '*.js*')).reduce(
@@ -60,9 +60,11 @@ const config = {
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(Object.keys(process.env)),
+    new webpack.EnvironmentPlugin(Object.keys(process.env).filter(index => (
+      process.env[index] === undefined
+    ))),
     new ManifestPlugin({
-      fileName: digestFileName,
+      fileName: manifestFileName,
       publicPath: `/${distDir}/`
     })
   ],

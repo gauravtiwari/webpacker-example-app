@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: f747b9f10e0a006119afb7a92b987b759d73d323
+  revision: c4de70d4d39daeab844e03071178796a0955eb64
   branch: feature/static-assets
   specs:
     webpacker (1.0)
@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/web-console.git
-  revision: 7fabe8bf706f53e3f0e88e0eee8097adbad72c18
+  revision: 2bf42d0b2d5e928b7907cfa8c42505b2cd12a3b2
   specs:
     web-console (3.4.0)
       actionview (>= 5.0)
@@ -116,8 +116,8 @@ GEM
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
-    pg (0.19.0)
-    puma (3.7.1)
+    pg (0.20.0)
+    puma (3.8.1)
     rack (2.0.1)
     rack-cors (0.4.1)
     rack-test (0.6.3)
@@ -167,7 +167,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.4)
+    uglifier (3.1.7)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
