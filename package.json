@@ -44,7 +44,7 @@
     "coffee-script": "^1.12.4",
     "compression-webpack-plugin": "^0.3.2",
     "core-js": "^2.4.1",
-    "css-loader": "^0.27.1",
+    "css-loader": "^0.27.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "glob": "^7.1.1",
