@@ -24,7 +24,7 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            publicPath: devServer.enabled ? devServerAddr : `/${sharedConfig.distDir}/`,
+            publicPath: !production && devServer.enabled ? devServerAddr : `/${sharedConfig.distDir}/`,
             name: production ? '[name]-[hash].[ext]' : '[name].[ext]'
           }
         }]
