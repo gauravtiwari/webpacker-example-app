@@ -7,7 +7,6 @@ const sharedConfig = require('./shared.js')
 const { devServer } = require('../../package.json')
 
 const production = process.env.NODE_ENV === 'production'
-const devServerAddr = `http://${devServer.host}:${devServer.port}/`
 
 module.exports = {
   module: {
@@ -24,7 +23,8 @@ module.exports = {
         use: [{
           loader: 'file-loader',
           options: {
-            publicPath: !production && devServer.enabled ? devServerAddr : `/${sharedConfig.distDir}/`,
+            publicPath: !production && devServer.enabled ?
+              `http://${devServer.host}:${devServer.port}/` : `/${sharedConfig.distDir}/`,
             name: production ? '[name]-[hash].[ext]' : '[name].[ext]'
           }
         }]

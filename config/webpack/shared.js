@@ -60,9 +60,7 @@ const config = {
   },
 
   plugins: [
-    new webpack.EnvironmentPlugin(Object.keys(process.env).filter(index => (
-      process.env[index] === undefined
-    ))),
+    new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(process.env))),
     new ManifestPlugin({
       fileName: manifestFileName,
       publicPath: `/${distDir}/`
