@@ -18,6 +18,11 @@ begin
 
   NODE_MODULES_PATH   = File.join(APP_PATH.shellescape, config["paths"]["node_modules_path"])
   WEBPACK_CONFIG_PATH = File.join(APP_PATH.shellescape, config["paths"]["config_path"])
+
+  if NODE_ENV == "development" && config["dev_server"]["enabled"]
+    puts "Warning: webpack-dev-server is currently enabled in #{CONFIG_PATH}. " \
+      "Disable to serve assets directly from packs directory"
+  end
 rescue Errno::ENOENT, NoMethodError
   puts "config/webpacker.yml or [paths, dev_server] config not found."
   puts "Please run bundle exec rails webpacker:install to install webpacker"
