@@ -1,24 +1,26 @@
 #!/usr/bin/env ruby
 $stdout.sync = true
 
-require 'shellwords'
-require 'json'
+require "shellwords"
+require "yaml"
 
-ENV['RAILS_ENV'] ||= 'development'
-RAILS_ENV   = ENV['RAILS_ENV']
+ENV["RAILS_ENV"] ||= "development"
+RAILS_ENV   = ENV["RAILS_ENV"]
 
-ENV['NODE_ENV'] ||= RAILS_ENV
-NODE_ENV    = ENV['NODE_ENV']
+ENV["NODE_ENV"] ||= RAILS_ENV
+NODE_ENV    = ENV["NODE_ENV"]
 
-APP_PATH = File.expand_path('../', __dir__)
+APP_PATH = File.expand_path("../", __dir__)
+CONFIG_PATH = File.join(APP_PATH, "config/webpacker.yml")
 
 begin
-  config = JSON.parse(File.read(File.join(APP_PATH, 'package.json')))
-  NODE_MODULES_PATH = File.join(APP_PATH.shellescape, config['webpacker']['nodeModulesPath'])
-  WEBPACK_CONFIG_PATH = File.join(APP_PATH.shellescape, config['webpacker']['configPath'])
+  config              = YAML.load(File.read(CONFIG_PATH))[NODE_ENV]
+
+  NODE_MODULES_PATH   = File.join(APP_PATH.shellescape, config["paths"]["node_modules_path"])
+  WEBPACK_CONFIG_PATH = File.join(APP_PATH.shellescape, config["paths"]["config_path"])
 rescue Errno::ENOENT, NoMethodError
-  puts 'Package.json or [webpacker, devServer] config key not found.'
-  puts 'Please run bundle exec rails webpacker:install to install webpacker'
+  puts "config/webpacker.yml or [paths, dev_server] config not found."
+  puts "Please run bundle exec rails webpacker:install to install webpacker"
   exit!
 end
 
@@ -27,5 +29,5 @@ WEBPACK_CONFIG = "#{WEBPACK_CONFIG_PATH}/#{NODE_ENV}.js"
 
 Dir.chdir(APP_PATH) do
   exec "NODE_PATH=#{NODE_MODULES_PATH} #{WEBPACK_BIN} --config #{WEBPACK_CONFIG}" \
-  " #{ARGV.join(" ")}"
+    " #{ARGV.join(" ")}"
 end

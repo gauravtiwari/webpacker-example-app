@@ -12,23 +12,6 @@
     "watch": "./bin/webpack-watcher",
     "postinstall": "npm rebuild node-sass"
   },
-  "_comment": "Configure webpack-dev-server",
-  "webpacker": {
-    "srcPath": "app/javascript",
-    "configPath": "config/webpack",
-    "nodeModulesPath": "node_modules",
-    "_comment": "If you rename distDir, please update distPath too",
-    "distDir": "packs",
-    "distPath": "public/packs",
-    "manifestFileName": "manifest.json",
-    "assets": true
-  },
-  "devServer": {
-    "enabled": true,
-    "host": "localhost",
-    "port": "8080",
-    "compress": true
-  },
   "dependencies": {
     "@angular/common": "^2.4.9",
     "@angular/compiler": "^2.4.9",
@@ -36,7 +19,7 @@
     "@angular/platform-browser": "^2.4.9",
     "@angular/platform-browser-dynamic": "^2.4.9",
     "axios": "^0.15.3",
-    "babel-core": "^6.23.1",
+    "babel-core": "^6.24.0",
     "babel-loader": "^6.4.0",
     "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.23.0",
@@ -44,10 +27,11 @@
     "coffee-script": "^1.12.4",
     "compression-webpack-plugin": "^0.3.2",
     "core-js": "^2.4.1",
-    "css-loader": "^0.27.2",
+    "css-loader": "^0.27.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.10.1",
     "glob": "^7.1.1",
+    "js-yaml": "^3.8.2",
     "node-sass": "^4.5.0",
     "path-complete-extname": "^0.1.0",
     "rails-erb-loader": "^3.2.0",
@@ -55,18 +39,18 @@
     "react-dom": "^15.4.2",
     "rxjs": "^5.2.0",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.13.2",
+    "style-loader": "^0.14.0",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
-    "vue": "^2.2.2",
+    "vue": "^2.2.4",
     "vue-loader": "^11.1.4",
-    "vue-template-compiler": "^2.2.2",
+    "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.0.0",
-    "zone.js": "^0.8.0"
+    "zone.js": "^0.8.2"
   },
   "devDependencies": {
-    "webpack-dev-server": "^2.4.1"
+    "webpack-dev-server": "^2.4.2"
   }
 }

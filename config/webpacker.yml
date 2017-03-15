@@ -1,0 +1,22 @@
+default: &default
+  paths:
+    src_path: app/javascript
+    config_path: config/webpack
+    node_modules_path: node_modules
+    dist_dir: packs
+    dist_path: public/packs
+
+  dev_server:
+    enabled: true
+    host: localhost
+    port: 8080
+    compress: true
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+
+test:
+  <<: *default

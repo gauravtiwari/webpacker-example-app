@@ -2,15 +2,13 @@
 
 const merge = require('webpack-merge')
 const devConfig = require('./development.js')
-const sharedConfig = require('./shared.js')
-const { devServer } = require('../../package.json')
+const { dev_server, publicPath } = require('./configuration.js')
 
 module.exports = merge(devConfig, {
   devServer: {
-    host: devServer.host,
-    port: devServer.port,
-    compress: devServer.compress,
-    publicPath: devServer.enabled ?
-      `http://${devServer.host}:${devServer.port}/` : `/${sharedConfig.distDir}/`
+    host: dev_server.host,
+    port: dev_server.port,
+    compress: dev_server.compress,
+    publicPath
   }
 })
