@@ -10,7 +10,7 @@ RAILS_ENV   = ENV["RAILS_ENV"]
 ENV["NODE_ENV"] ||= RAILS_ENV
 NODE_ENV    = ENV["NODE_ENV"]
 
-APP_PATH = File.expand_path("../", __dir__)
+APP_PATH    = File.expand_path("../", __dir__)
 CONFIG_PATH = File.join(APP_PATH, "config/webpacker.yml")
 
 begin
