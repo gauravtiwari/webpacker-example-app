@@ -1,17 +1,4 @@
 {
-  "name": "webpacker-app",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Integrates Webpack to manage application-like JavaScript in Rails",
-  "main": "app/javascript/packs/index.js",
-  "scripts": {
-    "lint": "./node_modules/eslint/bin/eslint.js lib/ --fix",
-    "compile": "./bin/webpack",
-    "build": "NODE_ENV=production ./bin/webpack",
-    "server": "./bin/webpack-dev-server",
-    "watch": "./bin/webpack-watcher",
-    "postinstall": "npm rebuild node-sass"
-  },
   "dependencies": {
     "@angular/common": "^2.4.9",
     "@angular/compiler": "^2.4.9",
@@ -20,8 +7,8 @@
     "@angular/platform-browser-dynamic": "^2.4.9",
     "axios": "^0.15.3",
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.0",
-    "babel-preset-env": "^1.2.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.2.2",
     "babel-preset-react": "^6.23.0",
     "coffee-loader": "^0.7.3",
     "coffee-script": "^1.12.4",
@@ -39,7 +26,7 @@
     "react-dom": "^15.4.2",
     "rxjs": "^5.2.0",
     "sass-loader": "^6.0.3",
-    "style-loader": "^0.14.0",
+    "style-loader": "^0.14.1",
     "ts-loader": "^2.0.1",
     "typescript": "^2.2.1",
     "vue": "^2.2.4",
@@ -47,8 +34,9 @@
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1",
     "webpack-manifest-plugin": "^1.1.0",
-    "webpack-merge": "^4.0.0",
-    "zone.js": "^0.8.2"
+    "webpack-merge": "^4.1.0",
+    "write-file-webpack-plugin": "^4.0.0",
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.4.2"

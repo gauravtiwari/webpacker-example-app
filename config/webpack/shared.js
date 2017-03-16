@@ -5,11 +5,16 @@ const path = require('path')
 const glob = require('glob')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 const extname = require('path-complete-extname')
-const { dev_server, env, paths, publicPath } = require('./configuration.js')
+const { env, paths, publicPath } = require('./configuration.js')
 
-const config = {
-  entry: glob.sync(path.join(paths.src_path, paths.dist_dir, '*.js*')).reduce(
+const extensions = ['.js', '.coffee', '.ts', '.jsx']
+const extensionGlob = `*(${extensions.join('|')})*`
+const packPaths = glob.sync(path.join(paths.src_path, paths.dist_dir, extensionGlob))
+
+module.exports = {
+  entry: packPaths.reduce(
     (map, entry) => {
       const basename = path.basename(entry, extname(entry))
       const localMap = map
@@ -63,7 +68,7 @@ const config = {
           loader: 'file-loader',
           options: {
             publicPath,
-            name: env === 'production' ? '[name]-[hash].[ext]' : '[name].[ext]'
+            name: env.NODE_ENV === 'production' ? '[name]-[hash].[ext]' : '[name].[ext]'
           }
         }]
       }
@@ -72,18 +77,14 @@ const config = {
 
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
-    new ExtractTextPlugin(
-      env === 'production' ? '[name]-[hash].css' : '[name].css'
-    ),
-    new ManifestPlugin({
-      fileName: 'manifest.json',
-      publicPath: `/${paths.dist_dir}/`
-    })
+    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[hash].css' : '[name].css'),
+    new ManifestPlugin({ fileName: 'manifest.json', publicPath }),
+    new WriteFilePlugin({ test: /manifest.json$/, log: false })
   ],
 
   resolve: {
     alias: { 'vue$':'vue/dist/vue.esm.js' },
-    extensions: ['.js', '.coffee', '.ts'],
+    extensions,
     modules: [
       path.resolve(paths.src_path),
       path.resolve(paths.node_modules_path)
@@ -91,14 +92,6 @@ const config = {
   },
 
   resolveLoader: {
-    modules: [path.resolve(paths.node_modules_path)]
+    modules: [paths.node_modules_path]
   }
-}
-
-module.exports = {
-  config,
-  dev_server,
-  env,
-  paths,
-  publicPath
 }
