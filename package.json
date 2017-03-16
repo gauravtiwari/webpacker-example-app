@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "postinstall": "npm rebuild node-sass"
+  },
   "dependencies": {
     "@angular/common": "^2.4.9",
     "@angular/compiler": "^2.4.9",
