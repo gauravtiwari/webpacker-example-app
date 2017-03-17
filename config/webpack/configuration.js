@@ -11,10 +11,14 @@ const { paths } = yaml.safeLoad(fs.readFileSync(path.join(configPath, 'paths.yml
 const { dev_server } = yaml.safeLoad(fs.readFileSync(path.join(configPath, 'dev_server.yml'), 'utf8'))
 const publicPath = env.NODE_ENV !== 'production' && dev_server.enabled ?
   `http://${dev_server.host}:${dev_server.port}/` : `/${paths.dist_dir}/`
+const extensions = ['.js', '.coffee', '.jsx', '.ts']
+const rulesDir = path.resolve(__dirname, 'loaders/')
 
 module.exports = {
   dev_server,
   env,
   paths,
+  extensions,
+  rulesDir,
   publicPath
 }
