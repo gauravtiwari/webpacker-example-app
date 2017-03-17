@@ -5,12 +5,11 @@ const path = require('path')
 const glob = require('glob')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
-const WriteFilePlugin = require('write-file-webpack-plugin')
 const extname = require('path-complete-extname')
 const { env, paths, publicPath } = require('./configuration.js')
 
-const extensions = ['.js', '.coffee', '.ts', '.jsx']
-const extensionGlob = `*(${extensions.join('|')})*`
+const extensions = ['.js', '.coffee', '.jsx', '.ts']
+const extensionGlob = `*{${extensions.join(',')}}*`
 const packPaths = glob.sync(path.join(paths.src_path, paths.dist_dir, extensionGlob))
 
 module.exports = {
@@ -27,13 +26,13 @@ module.exports = {
 
   module: {
     rules: [
-      { test: /.ts$/, loader: 'ts-loader' },
       {
         test: /.vue$/, loader: 'vue-loader',
         options: {
           loaders: { 'scss': 'vue-style-loader!css-loader!sass-loader', 'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'}
         }
       },
+      { test: /.ts$/, loader: 'ts-loader' },
       { test: /\.coffee(\.erb)?$/, loader: 'coffee-loader' },
       {
         test: /\.(js|jsx)?(\.erb)?$/,
@@ -78,8 +77,7 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
     new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[hash].css' : '[name].css'),
-    new ManifestPlugin({ fileName: 'manifest.json', publicPath }),
-    new WriteFilePlugin({ test: /manifest.json$/, log: false })
+    new ManifestPlugin({ fileName: 'manifest.json', publicPath, writeToFileEmit: true })
   ],
 
   resolve: {
