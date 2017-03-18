@@ -3,7 +3,7 @@
 // of the page.
 
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import clockIcon from '../counter/images/clock.png';
 import './hello-react.sass'
 
@@ -23,7 +23,7 @@ Hello.propTypes = {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
+  render(
     <Hello name="React" />,
     document.getElementById('react-app'),
   )

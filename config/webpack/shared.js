@@ -32,7 +32,11 @@ module.exports = {
   plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
     new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[hash].css' : '[name].css'),
-    new ManifestPlugin({ fileName: 'manifest.json', publicPath, writeToFileEmit: true })
+    new ManifestPlugin({ fileName: 'manifest.json', publicPath, writeToFileEmit: true }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: ({ resource }) => /node_modules/.test(resource),
+    }),
   ],
 
   resolve: {
