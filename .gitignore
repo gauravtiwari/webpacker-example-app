@@ -24,4 +24,5 @@
 /public/packs
 /node_modules/*
 /public/packs
+/public/bundles
 /node_modules
