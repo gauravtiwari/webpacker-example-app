@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: bc129290511062ddcedc8835811a26771e142aa5
+  revision: 524c746f981b5fc73446cc20fa668e65d23c6b87
   branch: feature/static-assets
   specs:
     webpacker (1.0)
@@ -30,7 +30,7 @@ GIT
 
 GIT
   remote: https://github.com/romanbsd/heroku-deflater.git
-  revision: 3f0a360bfa4aea9159935201fff837fafdbe267f
+  revision: 8ca836cfc5160e63a51993e66489b20935fc418b
   specs:
     heroku-deflater (0.6.3)
       rack (>= 1.4.5)
@@ -114,7 +114,7 @@ GEM
     minitest (5.10.1)
     multi_json (1.12.1)
     nio4r (2.0.0)
-    nokogiri (1.7.0.1)
+    nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     pg (0.20.0)
     puma (3.8.2)
@@ -167,7 +167,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (3.1.7)
+    uglifier (3.1.9)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
