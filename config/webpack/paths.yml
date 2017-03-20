@@ -1,6 +1,6 @@
 # Restart webpack-watcher or webpack-dev-server if you make changes here
 config: config/webpack
-entry: packs
+entry: bundles
 output: public
 node_modules: node_modules
 source: app/javascript
