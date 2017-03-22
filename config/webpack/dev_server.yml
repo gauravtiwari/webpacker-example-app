@@ -1,4 +1,4 @@
 # Restart webpack-dev-server if you make changes here
-enabled: false
+enabled: true
 host: localhost
 port: 8080
