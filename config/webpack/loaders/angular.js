@@ -1,1 +1,4 @@
-module.exports = { test: /.ts$/, loader: 'ts-loader' }
+module.exports = {
+  test: /.ts$/,
+  loader: 'ts-loader'
+}
