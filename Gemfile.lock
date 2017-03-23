@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/gauravtiwari/webpacker.git
-  revision: d7278d28a3e8f66ec7e5df6205e37550a68f0eb6
-  branch: feature/static-assets
-  specs:
-    webpacker (1.0)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/rails/sass-rails.git
   revision: dfbcc6a53653d8908007e26324a0f299f026ec4f
   specs:
@@ -27,6 +17,15 @@ GIT
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: a858f8e2cd2c736d09f936902a59d33b32ba73fb
+  specs:
+    webpacker (1.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
 
 GIT
   remote: https://github.com/romanbsd/heroku-deflater.git
