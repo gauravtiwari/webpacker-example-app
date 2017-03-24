@@ -1,5 +1,8 @@
+$color: #fafafa;
+$margin: 100px;
+
 .container {
-  max-width: 500px;
-  margin: 100px auto;
-  background: #fafafa;
+  max-width: $margin * 5;
+  margin: $margin auto;
+  background: $color;
 }
