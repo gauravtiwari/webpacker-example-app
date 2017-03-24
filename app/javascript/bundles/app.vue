@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" style="text-align: center">
+    <img src="../counter/images/clock.png" />
     <p>{{ message }}</p>
   </div>
 </template>
