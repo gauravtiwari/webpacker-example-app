@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: b3fa7c991f756e664234fc6ab561ec2ae5b8ac8e
+  revision: 32d2082d1a972a0bc2ee3231699e11dc19a3cac3
   specs:
     webpacker (1.1)
       activesupport (>= 4.2)
@@ -19,12 +19,12 @@ GIT
 
 GIT
   remote: https://github.com/rails/web-console.git
-  revision: 08de01e3be99ef3147320b13e5f7722c40a8bcb3
+  revision: b1fc057676204f069cab7dc86eb3b382320c25b6
   specs:
-    web-console (3.4.0)
+    web-console (3.5.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
-      debug_inspector
+      bindex (>= 0.4.0)
       railties (>= 5.0)
 
 GIT
@@ -75,6 +75,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (8.0.0)
+    bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
     coffee-rails (4.2.1)
@@ -85,11 +86,10 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
-    debug_inspector (0.0.2)
     erubi (1.6.0)
     execjs (2.7.0)
     ffi (1.9.18)
-    foreman (0.83.0)
+    foreman (0.84.0)
       thor (~> 0.19.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -168,7 +168,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.10)
+    uglifier (3.1.12)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)

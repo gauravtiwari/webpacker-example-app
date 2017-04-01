@@ -8,7 +8,11 @@ const loaderOptions = {
       loader: 'css-loader',
       // Enable css-modules
       // Documentation: https://github.com/css-modules/css-modules
-      options: { modules: true, localIdentName: '[path][name]__[local]--[hash:base64:5]' }
+      options: {
+        modules: true,
+        minimize: ifProduction(),
+        localIdentName: '[path][name]__[local]--[hash:base64:5]'
+      }
     },
     'postcss-loader',
     'sass-loader'

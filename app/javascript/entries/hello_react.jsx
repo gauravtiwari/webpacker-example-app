@@ -30,3 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('react-app'),
   )
 })
+
+if (module.hot) {
+  module.hot.accept()
+}
