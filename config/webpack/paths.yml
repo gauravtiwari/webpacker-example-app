@@ -1,7 +1,7 @@
 # Restart webpack-watcher or webpack-dev-server if you make changes here
 default: &default
   config: config/webpack
-  entry: bundles
+  entry: entries
   output: public
   manifest: manifest.json
   node_modules: node_modules

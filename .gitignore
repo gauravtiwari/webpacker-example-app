@@ -23,8 +23,10 @@
 .byebug_history
 /public/packs
 /node_modules/*
-/public/packs
 /public/bundles
+/node_modules
+/public/packs
+/public/entries
 /node_modules
 /public/packs
 /node_modules
