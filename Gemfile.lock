@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 32d2082d1a972a0bc2ee3231699e11dc19a3cac3
+  revision: 20563844cadf6e8890cf8ef8a30aea0308d4e5df
   specs:
     webpacker (1.1)
       activesupport (>= 4.2)
