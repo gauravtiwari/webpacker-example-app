@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: e0ab8ddea814bf6334c1529be54db001e9607dfe
+  revision: 3cd1bf224fa99223934f373a6f10cd1596283e5a
+  branch: check-node-and-yarn
   specs:
     webpacker (1.1)
       activesupport (>= 4.2)

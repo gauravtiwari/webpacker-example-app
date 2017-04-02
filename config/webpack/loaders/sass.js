@@ -1,30 +1,9 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const { ifProduction } = require('../configuration.js')
 
-const loaderOptions = {
-  fallback: 'style-loader',
-  use: [
-    {
-      loader: 'css-loader',
-      // Enable css-modules
-      // Documentation: https://github.com/css-modules/css-modules
-      options: {
-        modules: true,
-        minimize: ifProduction(),
-        localIdentName: '[path][name]__[local]--[hash:base64:5]'
-      }
-    },
-    'postcss-loader',
-    'sass-loader'
-  ]
+module.exports = {
+  test: /\.(scss|sass|css)$/i,
+  use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: ['css-loader', 'postcss-loader', 'sass-loader']
+  })
 }
-
-// For development server and hot-reloading use regular loaders
-// In production environment extract styles to a separate bundle
-module.exports = ifProduction({
-  test: /\.(scss|sass|css)$/i,
-  use: ExtractTextPlugin.extract(loaderOptions)
-}, {
-  test: /\.(scss|sass|css)$/i,
-  use: loaderOptions.use
-})

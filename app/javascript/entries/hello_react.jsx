@@ -5,12 +5,12 @@
 import React from 'react'
 import { render } from 'react-dom'
 import clockIcon from '../counter/images/clock.png';
-import styles from './hello-react.sass'
+import './hello-react.sass'
 
 const Hello = props => (
-  <div className={styles['react-app-wrapper']}>
+  <div className='react-app-wrapper'>
     <img src={clockIcon} alt="clock" />
-    <p className={styles['hello-react']}>
+    <p className='hello-react'>
       Hello {props.name}!
     </p>
   </div>

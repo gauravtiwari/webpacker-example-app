@@ -9,8 +9,7 @@ const { readdirSync } = require('fs')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const extname = require('path-complete-extname')
-const { removeEmpty } = require('webpack-config-utils')
-const { env, paths, publicPath, loadersDir, ifProduction } = require('./configuration.js')
+const { env, paths, publicPath, loadersDir } = require('./configuration.js')
 
 const extensionGlob = `*{${paths.extensions.join(',')}}*`
 const packPaths = sync(join(paths.source, paths.entry, extensionGlob))
@@ -24,11 +23,7 @@ module.exports = {
     }, {}
   ),
 
-  output: {
-    filename: '[name].js',
-    path: resolve(paths.output, paths.entry),
-    publicPath
-  },
+  output: { filename: '[name].js', path: resolve(paths.output, paths.entry) },
 
   module: {
     rules: readdirSync(loadersDir).map(file => (
@@ -36,17 +31,17 @@ module.exports = {
     ))
   },
 
-  plugins: removeEmpty([
+  plugins: [
     new webpack.EnvironmentPlugin(JSON.parse(JSON.stringify(env))),
-    ifProduction(new ExtractTextPlugin('[name]-[hash].css')),
+    new ExtractTextPlugin(env.NODE_ENV === 'production' ? '[name]-[hash].css' : '[name].css'),
     new ManifestPlugin({ fileName: paths.manifest, publicPath, writeToFileEmit: true })
-  ]),
+  ],
 
   resolve: {
     extensions: paths.extensions,
     modules: [
       resolve(paths.source),
-      paths.node_modules
+      resolve(paths.node_modules)
     ]
   },
 
