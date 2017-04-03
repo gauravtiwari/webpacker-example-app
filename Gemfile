@@ -16,7 +16,7 @@ gem 'coffee-rails'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'check-node-and-yarn'
+gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'fix/asset-host'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder'
 
