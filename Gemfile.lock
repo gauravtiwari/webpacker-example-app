@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: ce8d18169e950150846216dc1c21b9a78b36bfab
-  branch: fix/asset-host
+  revision: 8162f754e2c881b8ce5d708b922d3dd38b2cd50d
+  branch: fix/css-minimization
   specs:
     webpacker (1.1)
       activesupport (>= 4.2)

@@ -23,11 +23,7 @@ module.exports = {
     }, {}
   ),
 
-  output: {
-    filename: '[name].js',
-    path: resolve(paths.output, paths.entry),
-    publicPath
-  },
+  output: { filename: '[name].js', path: resolve(paths.output, paths.entry) },
 
   module: {
     rules: readdirSync(loadersDir).map(file => (
