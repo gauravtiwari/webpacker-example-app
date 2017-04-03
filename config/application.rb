@@ -14,7 +14,7 @@ module WebpackerExampleApp
           origins %w[
             https://webpacker-example-app.herokuapp.com
           ]
-          resource '/bundles/*'
+          resource '/entries/*'
         end
       end
     end
