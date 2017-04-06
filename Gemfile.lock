@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 8162f754e2c881b8ce5d708b922d3dd38b2cd50d
-  branch: fix/css-minimization
-  specs:
-    webpacker (1.1)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/rails/sass-rails.git
   revision: dfbcc6a53653d8908007e26324a0f299f026ec4f
   specs:
@@ -29,11 +19,13 @@ GIT
       railties (>= 5.0)
 
 GIT
-  remote: https://github.com/romanbsd/heroku-deflater.git
-  revision: 8ca836cfc5160e63a51993e66489b20935fc418b
+  remote: https://github.com/rails/webpacker.git
+  revision: 5e4f2389ab30aceaf4afea7aa5e4e40303d31b37
   specs:
-    heroku-deflater (0.6.3)
-      rack (>= 1.4.5)
+    webpacker (1.1)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
 
 GEM
   remote: https://rubygems.org/
@@ -169,7 +161,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.12)
+    uglifier (3.1.13)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
@@ -182,7 +174,6 @@ DEPENDENCIES
   byebug
   coffee-rails
   foreman
-  heroku-deflater!
   jbuilder
   listen (>= 3.0.5, < 3.2)
   pg

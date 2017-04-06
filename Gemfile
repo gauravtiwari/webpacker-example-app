@@ -16,7 +16,7 @@ gem 'coffee-rails'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'fix/css-minimization'
+gem 'webpacker', github: 'rails/webpacker'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder'
 
@@ -27,7 +27,7 @@ end
 group :production do
   gem 'pg'
   gem 'redis'
-  gem 'heroku-deflater', github: 'romanbsd/heroku-deflater'
+  #gem 'heroku-deflater', github: 'romanbsd/heroku-deflater'
   gem 'rack-cors'
 end
 
