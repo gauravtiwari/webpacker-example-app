@@ -1,13 +1,4 @@
 GIT
-  remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 7f07195772fa8535024a42d9b45909405c983886
-  specs:
-    webpacker (1.1)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/rails/sass-rails.git
   revision: dfbcc6a53653d8908007e26324a0f299f026ec4f
   specs:
@@ -26,6 +17,15 @@ GIT
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: 1dcc3330d5a6709b6a8bfbe5594cf109e3b616fb
+  specs:
+    webpacker (1.1)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
 
 GIT
   remote: https://github.com/romanbsd/heroku-deflater.git
@@ -168,7 +168,7 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (3.1.13)
+    uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
