@@ -1,8 +1,9 @@
 # Restart webpack-dev-server if you make changes here
 default: &default
-  enabled: false
+  enabled: true
+  protocol: http
   host: localhost
-  port: 8080
+  port: 8081
 
 development:
   <<: *default
@@ -13,4 +14,5 @@ test:
 
 production:
   <<: *default
+  protocol: https
   enabled: false

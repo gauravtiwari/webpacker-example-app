@@ -1,4 +1,14 @@
 GIT
+  remote: https://github.com/gauravtiwari/webpacker.git
+  revision: 48f912e0536b7cc1052bb260fbe1a3b67578e13f
+  branch: move-to-node-package
+  specs:
+    webpacker (1.1)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
+
+GIT
   remote: https://github.com/rails/sass-rails.git
   revision: dfbcc6a53653d8908007e26324a0f299f026ec4f
   specs:
@@ -17,15 +27,6 @@ GIT
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-
-GIT
-  remote: https://github.com/rails/webpacker.git
-  revision: 814cabae36da6ec5b55291e7b55db08ad8e6b839
-  specs:
-    webpacker (1.1)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
 
 GIT
   remote: https://github.com/romanbsd/heroku-deflater.git
