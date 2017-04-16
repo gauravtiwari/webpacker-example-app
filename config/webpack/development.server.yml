@@ -1,9 +1,11 @@
 # Restart webpack-dev-server if you make changes here
 default: &default
-  enabled: true
+  # Optional HMR support - https://webpack.js.org/concepts/hot-module-replacement/
+  # Set true if you need HMR support
+  hot: true
   protocol: http
   host: localhost
-  port: 8081
+  port: 8080
 
 development:
   <<: *default
@@ -14,5 +16,8 @@ test:
 
 production:
   <<: *default
-  protocol: https
   enabled: false
+  # Useful for cloud9
+  host: 0.0.0.0
+  port: 80
+  protocol: https

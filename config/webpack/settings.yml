@@ -1,0 +1,5 @@
+# Restart webpack-dev-server if you make changes here
+
+# Add optional css_modules support
+# Read doc here: https://github.com/css-modules/css-modules
+css_modules: false

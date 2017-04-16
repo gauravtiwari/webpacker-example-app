@@ -1,10 +1,9 @@
 # Restart webpack-watcher or webpack-dev-server if you make changes here
 default: &default
-  config: config/webpack
+  # entry directory for webpack, uses same directory name when emiting builds inside output folder
   entry: entries
   output: public
   manifest: manifest.json
-  node_modules: node_modules
   source: app/assets/javascript
   extensions:
     - .coffee

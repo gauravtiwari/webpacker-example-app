@@ -4528,9 +4528,9 @@ webpack@^2.3.3:
     webpack-sources "^0.2.3"
     yargs "^6.0.0"
 
-webpacker-scripts@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/webpacker-scripts/-/webpacker-scripts-0.0.6.tgz#4c6f648c7ce4bdc1738826db28cfc5eae954bc5a"
+webpacker-scripts@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/webpacker-scripts/-/webpacker-scripts-0.1.2.tgz#12ad1b02544777d7f9c24f9c551ebe8cbc38928f"
   dependencies:
     autoprefixer "^6.7.7"
     babel-core "^6.24.1"

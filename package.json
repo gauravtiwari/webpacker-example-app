@@ -1,6 +1,8 @@
 {
   "scripts": {
-    "postinstall": "npm rebuild node-sass"
+    "postinstall": "npm rebuild node-sass",
+    "build": "node_modules/.bin/webpacker build",
+    "start": "node_modules/.bin/webpacker start"
   },
   "engines": {
     "npm": "4.2.0"
@@ -21,7 +23,7 @@
     "vue": "^2.2.6",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
-    "webpacker-scripts": "^0.0.6",
+    "webpacker-scripts": "^0.1.2",
     "zone.js": "^0.8.5"
   }
 }
