@@ -2,10 +2,10 @@
 default: &default
   # Optional HMR support - https://webpack.js.org/concepts/hot-module-replacement/
   # Set true if you need HMR support
-  hot: true,
-  host: localhost,
+  hot: true
+  host: localhost
   protocol: http
-  port: 8080,
+  port: 8080
   quiet: true
 
 development:
