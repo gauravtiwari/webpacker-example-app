@@ -18,6 +18,7 @@ default: &default
     - .svg
     - .gif
     - .jpeg
+    - .jpg
 
 development:
   <<: *default
