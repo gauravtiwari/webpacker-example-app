@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: c6a2b0bc2228116386c9d415679d826c67a3ed14
+  revision: 7785fe6420ca9eec42c68af94e8f5839e34a7aa2
   branch: move-to-node-package
   specs:
     webpacker (1.1)
