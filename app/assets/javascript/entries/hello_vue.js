@@ -6,7 +6,7 @@
 
 import Vue from 'vue/dist/vue.esm'
 import App from './app.vue'
-
+import html from './app.html'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
@@ -14,6 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     template: '<App/>',
     components: { App }
   })
-
   console.log(app)
+  console.log(html)
 })

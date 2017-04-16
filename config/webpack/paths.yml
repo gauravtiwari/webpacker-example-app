@@ -2,6 +2,10 @@
 default: &default
   # entry directory for webpack, uses same directory name when emiting builds inside output folder
   entry: entries
+  # custom config file to add/update weback config used by webpacker
+  # this file should be placed under config/webpack/[name.js]
+  # ex: config/webpack/webpacker.config.js
+  customConfig: webpacker.config.js
   output: public
   manifest: manifest.json
   source: app/assets/javascript

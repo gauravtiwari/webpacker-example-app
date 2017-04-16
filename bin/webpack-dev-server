@@ -4,19 +4,13 @@ $stdout.sync = true
 require "shellwords"
 require "yaml"
 
-ENV["RAILS_ENV"] ||= "development"
-RAILS_ENV = ENV["RAILS_ENV"]
-
-ENV["NODE_ENV"] ||= RAILS_ENV
-NODE_ENV = ENV["NODE_ENV"]
-
 APP_PATH            = File.expand_path("../", __dir__)
 NODE_MODULES_PATH   = File.join(APP_PATH.shellescape, "node_modules")
 WEBPACKER_BIN       = "#{NODE_MODULES_PATH}/.bin/webpacker"
 
 Dir.chdir(APP_PATH) do
   begin
-    exec "NODE_ENV=#{NODE_ENV} #{WEBPACKER_BIN} start"
+    exec "#{WEBPACKER_BIN} start"
   rescue Errno::ENOENT
     puts "Webpacker executable is not installed"
     puts "Run yarn add webpacker-scripts or install using bundle exec rails webpacker:install"

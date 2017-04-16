@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 7785fe6420ca9eec42c68af94e8f5839e34a7aa2
+  revision: bc8e8e5edd61039c12281dc877e155cacdd368a5
   branch: move-to-node-package
   specs:
     webpacker (1.1)
@@ -92,8 +92,8 @@ GEM
     ffi (1.9.18)
     foreman (0.84.0)
       thor (~> 0.19.1)
-    globalid (0.3.7)
-      activesupport (>= 4.1.0)
+    globalid (0.4.0)
+      activesupport (>= 4.2.0)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
