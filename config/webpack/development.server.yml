@@ -6,6 +6,7 @@ default: &default
   host: localhost
   protocol: http
   port: 8080
+  # Usually dev server logs a lot of noise
   quiet: true
 
 development:

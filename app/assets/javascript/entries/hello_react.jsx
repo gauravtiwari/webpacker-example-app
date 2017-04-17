@@ -3,34 +3,27 @@
 // of the page.
 
 import React from 'react'
-import { render } from 'react-dom'
+import ReactDOM from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 import clockIcon from '../counter/images/clock.png';
 import './hello-react.sass'
+import HelloExample from '../hello_example'
 
-const Hello = props => (
-  <div className='react-app-wrapper'>
-    <img src={clockIcon} alt="clock" />
-    <p className='hello-react'>
-      Hello {props.name}!
-    </p>
-  </div>
-)
-
-Hello.defaultProps = {
-  name: 'David'
-}
-
-Hello.propTypes = {
-  name: React.PropTypes.string
-}
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <HelloExample/>
+    </AppContainer>,
+    document.getElementById('react-app')
+  );
+};
 
 document.addEventListener('DOMContentLoaded', () => {
-  render(
-    <Hello name="React" />,
-    document.getElementById('react-app'),
-  )
+  render(HelloExample)
 })
 
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept('../hello_example', () => {
+    render(HelloExample)
+  })
 }
