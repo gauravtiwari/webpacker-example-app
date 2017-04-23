@@ -26,7 +26,7 @@
     "vue": "^2.2.6",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
-    "webpacker-scripts": "^0.3.3",
+    "webpacker-scripts": "^0.3.5",
     "zone.js": "^0.8.5"
   }
 }

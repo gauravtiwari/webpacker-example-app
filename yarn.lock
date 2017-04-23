@@ -4693,9 +4693,9 @@ webpack@^2.4.1:
     webpack-sources "^0.2.3"
     yargs "^6.0.0"
 
-webpacker-scripts@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/webpacker-scripts/-/webpacker-scripts-0.3.3.tgz#f09146fa0a28c5cc1e86f04cdb2dc3dab185a0d4"
+webpacker-scripts@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/webpacker-scripts/-/webpacker-scripts-0.3.5.tgz#1110427bd8b59777d8a45845658e094222b1d5b4"
   dependencies:
     autoprefixer "^6.7.7"
     babel-core "^6.24.1"

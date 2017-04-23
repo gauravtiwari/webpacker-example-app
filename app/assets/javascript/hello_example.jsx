@@ -11,7 +11,7 @@ const Hello = props => (
   <div className='react-app-wrapper'>
     <img src={clockIcon} alt="clock" />
     <p className='hello-react'>
-      Good! {props.name}!
+      Hello! {props.name}!
     </p>
   </div>
 )

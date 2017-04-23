@@ -7,5 +7,6 @@
       }
     ],
     "react"
-  ]
+  ],
+  "plugins": ["react-hot-loader/babel"]
 }
