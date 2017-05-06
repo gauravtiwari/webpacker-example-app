@@ -1,17 +1,15 @@
-# Restart webpack-watcher or webpack-dev-server if you make changes here
+# Note: You must restart bin/webpack-dev-server for changes to take effect
+
 default: &default
-  # entry directory for webpack, uses same directory name when emiting builds inside output folder
+  config: config/webpack
   entry: entries
-  # directory to output packs
   output: public
-  # name of manifest file
   manifest: manifest.json
-  # javascript app source path
+  node_modules: node_modules
   source: app/assets/javascript
-  # file extensions webpack supports
   extensions:
     - .coffee
-    - .erb
+    - .elm
     - .js
     - .jsx
     - .ts

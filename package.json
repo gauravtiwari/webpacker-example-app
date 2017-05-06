@@ -8,11 +8,11 @@
     "npm": "4.2.0"
   },
   "dependencies": {
-    "@angular/common": "^4.0.2",
-    "@angular/compiler": "^4.0.2",
-    "@angular/core": "^4.0.2",
-    "@angular/platform-browser": "^4.0.2",
-    "@angular/platform-browser-dynamic": "^4.0.2",
+    "@angular/common": "^4.1.1",
+    "@angular/compiler": "^4.1.1",
+    "@angular/core": "^4.1.1",
+    "@angular/platform-browser": "^4.1.1",
+    "@angular/platform-browser-dynamic": "^4.1.1",
     "autoprefixer": "^7.0.0",
     "babel-core": "^6.24.1",
     "babel-loader": "7.x",
@@ -38,20 +38,20 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
-    "rxjs": "^5.3.0",
+    "rxjs": "^5.3.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "ts-loader": "^2.0.3",
-    "typescript": "^2.2.2",
+    "typescript": "^2.3.2",
     "url-parse": "^1.1.9",
-    "vue": "^2.2.6",
-    "vue-loader": "^11.3.4",
-    "vue-template-compiler": "^2.2.6",
+    "vue": "^2.3.2",
+    "vue-loader": "^12.0.3",
+    "vue-template-compiler": "^2.3.2",
     "webpack": "^2.5.1",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0",
     "webpacker-scripts": "^0.3.6",
-    "zone.js": "^0.8.5"
+    "zone.js": "^0.8.10"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.4.5"
