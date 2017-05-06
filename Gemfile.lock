@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: c46d111e1eb58fd69fdff38108878594587c63f9
-  branch: move-to-node-package
+  revision: 7ebe3718aa6e4a222558f1f00396ae531958307f
+  branch: fix-asset-host
   specs:
-    webpacker (1.1)
+    webpacker (1.2)
       activesupport (>= 4.2)
       multi_json (~> 1.2)
       railties (>= 4.2)
