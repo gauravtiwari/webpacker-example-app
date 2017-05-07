@@ -10,9 +10,9 @@ import './entries/hello-react.sass'
 const Hello = props => (
   <div className='react-app-wrapper'>
     <img src={clockIcon} alt="clock" />
-    <p className='hello-react'>
+    <h5 className='hello-react'>
       Hello! {props.name}!
-    </p>
+    </h5>
   </div>
 )
 

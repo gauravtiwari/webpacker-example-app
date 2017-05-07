@@ -4,7 +4,6 @@ default: &default
   enabled: true
   host: localhost
   port: 8080
-  https: false
 
 development:
   <<: *default
@@ -16,4 +15,3 @@ test:
 production:
   <<: *default
   enabled: false
-  https: true
