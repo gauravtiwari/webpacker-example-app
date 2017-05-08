@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: be60174c313462897cf97d5af1f4812a45d0f0f1
+  revision: 28279eab44be336469b4bef56023ee61233c9ddc
   branch: fix-asset-host
   specs:
     webpacker (1.2)
@@ -118,7 +118,7 @@ GEM
       mini_portile2 (~> 2.1.0)
     pg (0.20.0)
     puma (3.8.2)
-    rack (2.0.1)
+    rack (2.0.2)
     rack-cors (0.4.1)
     rack-test (0.6.3)
       rack (>= 1.0)
