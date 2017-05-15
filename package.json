@@ -13,6 +13,7 @@
     "@angular/core": "^4.1.2",
     "@angular/platform-browser": "^4.1.2",
     "@angular/platform-browser-dynamic": "^4.1.2",
+    "@blueprintjs/core": "^1.17.1",
     "autoprefixer": "^7.1.0",
     "babel-core": "^6.24.1",
     "babel-loader": "7.x",
@@ -24,6 +25,7 @@
     "compression-webpack-plugin": "^0.4.0",
     "core-js": "^2.4.1",
     "css-loader": "^0.28.1",
+    "elm": "^0.18.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "font-awesome": "^4.7.0",
@@ -55,8 +57,7 @@
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0",
     "webpacker-scripts": "^0.3.6",
-    "zone.js": "^0.8.10",
-    "@blueprintjs/core": "^1.17.1"
+    "zone.js": "^0.8.10"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.4.5"
