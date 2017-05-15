@@ -1,7 +1,4 @@
 Rails.application.configure do
-  # Cache webpacker manifest and configuration in production
-  config.webpacker.caching = true
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
