@@ -5,7 +5,7 @@
       {
         "modules": false,
         "targets": {
-          "node": "current",
+          "browser": "> 1%",
           "uglify": true
         },
         "useBuiltIns": true
