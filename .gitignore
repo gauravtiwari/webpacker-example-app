@@ -17,16 +17,22 @@
 !/log/.keep
 !/tmp/.keep
 
-/vendor/node_modules
+/vendor/elm-stuff
+/node_modules
 /vendor/yarn-error.log
 
 .byebug_history
 /public/packs
 /node_modules/*
 /public/bundles
+/elm-stuff
 /node_modules
 /public/packs
 /public/entries
+/elm-stuff
+/node_modules
+/public/packs
+/elm-stuff
 /node_modules
 /public/packs
 /node_modules

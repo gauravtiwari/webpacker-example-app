@@ -7,6 +7,7 @@
 import Vue from 'vue/dist/vue.esm'
 import App from './app.vue'
 import html from './app.html'
+import 'font-awesome/css/font-awesome.css'
 
 document.addEventListener('DOMContentLoaded', () => {
   const app = new Vue({
