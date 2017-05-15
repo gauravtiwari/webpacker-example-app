@@ -17,6 +17,7 @@ default: &default
     node_modules: node_modules
     source: app/assets/javascript
     extensions:
+      - .elm
       - .coffee
       - .erb
       - .js
