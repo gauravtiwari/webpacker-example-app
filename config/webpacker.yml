@@ -1,22 +1,53 @@
+# Note: You must restart bin/webpack-dev-server for changes to take effect
+
 default: &default
-  paths:
-    src_path: app/javascript
-    config_path: config/webpack
-    node_modules_path: node_modules
-    dist_dir: packs
-    dist_path: public/packs
-
-  dev_server:
-    enabled: true
-    host: localhost
+  devServer:                  # https://webpack.js.org/configuration/dev-server/
+    enabled: true             # Enabled by default in development
+    host: localhost           # Dev server host
     port: 8080
-    compress: true
+    https: false
+    hot: false                # Hot reloading: https://webpack.js.org/configuration/dev-server/#devserver-hot
 
-production:
-  <<: *default
+  paths:                       # ~ = Rails.root
+    source: app/assets/javascript     # ~/:source
+    entry: entries             # ~/:source/:entry
+    output: entries            # ~/public/:output
+    manifest: manifest.json    # ~/public/:output/:manifest
+    config: config/webpack     # ~/:config
+
+    extensions:
+      - .elm
+      - .coffee
+      - .js
+      - .jsx
+      - .ts
+      - .vue
+      - .sass
+      - .scss
+      - .css
+      - .png
+      - .svg
+      - .gif
+      - .jpeg
+      - .jpg
 
 development:
   <<: *default
 
 test:
   <<: *default
+
+  devServer:
+    enabled: false
+
+  paths:
+    manifest: manifest-test.json
+
+production:
+  <<: *default
+
+  devServer:
+    host: example.com
+    port:
+    enabled: false
+    https: true

@@ -29,6 +29,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+    config.action_controller.asset_host = ENV['ASSET_HOST']
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 

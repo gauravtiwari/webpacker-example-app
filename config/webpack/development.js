@@ -2,8 +2,7 @@
 
 const merge = require('webpack-merge')
 const sharedConfig = require('./shared.js')
-const { resolve } = require('path')
-const { devServer, publicPath, paths } = require('./configuration.js')
+const { devServer, output } = require('./configuration.js')
 
 module.exports = merge(sharedConfig, {
   devtool: 'sourcemap',
@@ -18,12 +17,12 @@ module.exports = merge(sharedConfig, {
 
   devServer: {
     host: devServer.host,
+    hot: devServer.hot,
     port: devServer.port,
+    contentBase: output.path,
+    publicPath: output.publicPath,
     compress: true,
-    https: devServer.https,
     headers: { 'Access-Control-Allow-Origin': '*' },
-    historyApiFallback: true,
-    contentBase: resolve(paths.output, paths.entry),
-    publicPath
+    historyApiFallback: true
   }
 })

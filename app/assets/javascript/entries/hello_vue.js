@@ -6,7 +6,6 @@
 
 import Vue from 'vue/dist/vue.esm'
 import App from './app.vue'
-import html from './app.html'
 import 'font-awesome/css/font-awesome.css'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,5 +15,4 @@ document.addEventListener('DOMContentLoaded', () => {
     components: { App }
   })
   console.log(app)
-  console.log(html)
 })
