@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.0.beta'
+gem 'rails', '~> 5.1.x'
 
 group :development do
   gem 'sqlite3'
@@ -16,7 +16,7 @@ gem 'coffee-rails'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'reload-manifest'
+gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'consolidate-yml-files'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder'
 
