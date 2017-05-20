@@ -14,8 +14,6 @@ const { env, paths, output, loadersDir } = require('./configuration.js')
 const extensionGlob = `**/*{${paths.extensions.join(',')}}*`
 const packPaths = sync(join(paths.source, paths.entry, extensionGlob))
 
-console.warn(join(paths.source, paths.entry, extensionGlob))
-
 module.exports = {
   entry: packPaths.reduce(
     (map, entry) => {

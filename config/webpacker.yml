@@ -6,7 +6,6 @@ default: &default
     host: localhost           # Dev server host
     port: 8080
     https: false
-    hot: false                # Hot reloading: https://webpack.js.org/configuration/dev-server/#devserver-hot
 
   paths:                       # ~ = Rails.root
     source: app/assets/javascript     # ~/:source
