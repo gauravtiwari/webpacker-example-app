@@ -2,10 +2,10 @@
 
 const merge = require('webpack-merge')
 const sharedConfig = require('./shared.js')
-const { dev_server, output } = require('./configuration.js')
+const { settings, output } = require('./configuration.js')
 
 module.exports = merge(sharedConfig, {
-  devtool: 'cheap-module-source-map',
+  devtool: 'cheap-eval-source-map',
 
   stats: {
     errorDetails: true
@@ -17,8 +17,9 @@ module.exports = merge(sharedConfig, {
 
   devServer: {
     clientLogLevel: 'none',
-    host: dev_server.host,
-    port: dev_server.port,
+    https: settings.dev_server.https,
+    host: settings.dev_server.host,
+    port: settings.dev_server.port,
     contentBase: output.path,
     publicPath: output.publicPath,
     compress: true,

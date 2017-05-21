@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 099f080f7745e26afa3c3486ca414ef41aaa33ed
+  revision: 57e082cf782ca240339b4a499594eb6168dd3878
   branch: consolidate-yml-files
   specs:
     webpacker (1.2)
@@ -145,7 +145,7 @@ GEM
     redis (3.3.3)
     ruby_dep (1.5.0)
     sass (3.4.24)
-    spring (2.0.1)
+    spring (2.0.2)
       activesupport (>= 4.2)
     sprockets (4.0.0.beta4)
       concurrent-ruby (~> 1.0)
