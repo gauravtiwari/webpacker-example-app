@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 9d3288aab9dfc98c2d55c95c5ee73d6b7c95c78f
+  revision: bfab9850bc20160d7f9a84c04929484d2a035858
   branch: consolidate-yml-files
   specs:
     webpacker (1.2)
