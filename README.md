@@ -1,7 +1,5 @@
 # Rails Webpacker Example App
 
-*Note: This has some experimental features, which are supposed to be merged [https://github.com/rails/webpacker/pull/153](https://github.com/rails/webpacker/pull/153) into webpacker Gem. Please follow the blog post to setup a fresh app.*
-
 Demo app that showcases Rails on webpack and yarn using Webpacker gem (default setup in upcoming Rails 5.1)
 
 * [Webpacker](https://github.com/rails/webpacker)
