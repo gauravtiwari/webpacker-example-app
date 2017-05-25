@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "postinstall": "npm rebuild node-sass",
+    "postinstall": "npm rebuild node-sass && npm rebuild elm",
     "build": "node_modules/.bin/webpacker build",
     "start": "node_modules/.bin/webpacker start"
   },
