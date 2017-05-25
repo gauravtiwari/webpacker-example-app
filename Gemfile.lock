@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/gauravtiwari/webpacker.git
-  revision: 6b607668f877d76efc35c8d614ec88528b1e56b3
-  branch: consolidate-yml-files
-  specs:
-    webpacker (1.2)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
-
-GIT
   remote: https://github.com/rails/sass-rails.git
   revision: dd04a6a6d19cbd7cfd2f9d304a445444e0b88a19
   specs:
@@ -27,6 +17,15 @@ GIT
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: d2ca8d0c124a8a48b8ca2b5054f7c56ec76c7235
+  specs:
+    webpacker (2.0)
+      activesupport (>= 4.2)
+      multi_json (~> 1.2)
+      railties (>= 4.2)
 
 GEM
   remote: https://rubygems.org/
