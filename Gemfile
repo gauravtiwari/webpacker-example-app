@@ -6,26 +6,24 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.x'
-
-group :development do
-  gem 'sqlite3'
-end
+gem 'rails', '~> 5.1.0'
+gem 'pg'
 
 gem 'coffee-rails'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker', github: 'rails/webpacker'
+gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'cache-test-compilation'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 group :production do
-  gem 'pg'
   gem 'redis'
   # gem 'heroku-deflater', github: 'romanbsd/heroku-deflater'
   gem 'rack-cors'

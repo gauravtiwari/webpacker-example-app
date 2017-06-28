@@ -39,18 +39,18 @@
     "node-sass": "^4.5.3",
     "path-complete-extname": "^0.1.0",
     "postcss-cssnext": "^2.11.0",
-    "postcss-loader": "^2.0.5",
+    "postcss-loader": "^2.0.6",
     "postcss-smart-import": "^0.7.4",
     "precss": "^1.4.0",
     "prop-types": "^15.5.10",
-    "rails-erb-loader": "^5.0.1",
+    "rails-erb-loader": "^5.0.2",
     "rails-ujs": "^5.1.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
-    "resolve-url-loader": "^2.0.2",
+    "resolve-url-loader": "^2.1.0",
     "rxjs": "^5.4.0",
-    "sass-loader": "^6.0.5",
+    "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "ts-loader": "^2.1.0",
     "typescript": "^2.3.2",
@@ -58,7 +58,7 @@
     "vue": "^2.3.3",
     "vue-loader": "^12.1.0",
     "vue-template-compiler": "^2.3.3",
-    "webpack": "^2.6.1",
+    "webpack": "^3.0.0",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-merge": "^4.1.0",
     "webpacker-scripts": "^0.3.6",
@@ -66,6 +66,6 @@
   },
   "devDependencies": {
     "elm-hot-loader": "^0.5.4",
-    "webpack-dev-server": "^2.4.5"
+    "webpack-dev-server": "^2.5.0"
   }
 }

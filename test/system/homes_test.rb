@@ -1,9 +1,6 @@
-require "webpacker/test_helper"
 require "application_system_test_case"
 
 class HomesTest < ApplicationSystemTestCase
-  include Webpacker::TestHelper
-
   test "can see the welcome page" do
     visit root_url
     assert_selector "h1", text: "Counter (vanilla js)"

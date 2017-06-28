@@ -4,6 +4,7 @@ default: &default
   source_path: app/assets/javascript
   source_entry_path: entries
   public_output_path: entries
+  compile_missing_packs: true
 
   extensions:
     - .elm
@@ -26,7 +27,7 @@ development:
   <<: *default
 
   dev_server:
-    host: 0.0.0.0
+    host: localhost
     port: 8080
     https: false
 
@@ -37,3 +38,5 @@ test:
 
 production:
   <<: *default
+
+  compile_missing_packs: false
