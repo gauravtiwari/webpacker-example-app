@@ -4,7 +4,11 @@ default: &default
   source_path: app/assets/javascript
   source_entry_path: entries
   public_output_path: entries
-  compile_missing_packs: true
+  cache_path: tmp/cache/webpacker
+
+  # Additional paths webpack should lookup modules
+  # ['app/assets', 'engine/foo/app/assets']
+  resolved_paths: []
 
   extensions:
     - .elm
@@ -25,7 +29,7 @@ default: &default
 
 development:
   <<: *default
-
+  compile: true
   dev_server:
     host: localhost
     port: 8080
@@ -33,10 +37,11 @@ development:
 
 test:
   <<: *default
-
+  compile: true
   public_output_path: packs-test
 
 production:
   <<: *default
 
-  compile_missing_packs: false
+  # Production demands on precompilation of packs prior to booting for performance.
+  compile: false

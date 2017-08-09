@@ -13,7 +13,7 @@ gem 'coffee-rails'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker', github: 'gauravtiwari/webpacker', branch: 'cache-test-compilation'
+gem 'webpacker', path: '/Volumes/MacintoshHD/Users/gaurav/contributions/webpacker'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder'
 
