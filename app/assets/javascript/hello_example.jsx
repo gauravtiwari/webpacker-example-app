@@ -4,12 +4,10 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import clockIcon from './counter/images/clock.png';
-import './entries/hello-react.sass'
+import './hello.sass'
 
 const Hello = props => (
   <div className='react-app-wrapper'>
-    <img src={clockIcon} alt="clock" />
     <h5 className='hello-react'>
       Hello! {props.name}!
     </h5>

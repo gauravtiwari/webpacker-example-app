@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class HomeTest < ActionDispatch::IntegrationTest
-  test "can see the welcome page" do
-    get root_url
-    assert_select "h1", "Counter (vanilla js)"
+  test "can see the hello message" do
+    get '/'
+    assert_select "h5", text: "Hello! David"
   end
 end

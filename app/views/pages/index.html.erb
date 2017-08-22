@@ -1,26 +1,11 @@
 <div class="container">
-  <div class="counter-wrapper">
-    <h1>Counter (vanilla js)</h1>
-    <form class='counter'>
-      <input type="number" name="counter" id='counter' value='0' />
-      <button id='increment'>Increment</button>
-      <button id='decrement'>Decrement</button>
-    </form>
-
-    <% # Using CSS %>
-    <div class="css-bg-image">
-      <p>Stylesheet</p>
-      <div id="css-bg-image"></div>
-    </div>
-
-    <div class="react-app-wrapper">
-      <div id="react-app"></div>
-    </div>
-  </div>
+  <div id="react-app"></div>
 </div>
+ <div id='hello'>
+   <app></app>
+ </div>
 
-<%= javascript_pack_tag 'counter', integrity: true %>
-<%= stylesheet_pack_tag 'counter' %>
 <%= javascript_pack_tag 'hello_react' %>
 <%= stylesheet_pack_tag 'hello_react' %>
-<%= javascript_pack_tag 'admin/application' %>
+<%= javascript_pack_tag 'hello_vue' %>
+<%= stylesheet_pack_tag 'hello_vue' %>

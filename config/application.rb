@@ -18,5 +18,7 @@ module WebpackerExampleApp
         end
       end
     end
+
+    Webpacker::Compiler.watched_paths << 'node_modules/**/*'
   end
 end

@@ -2,18 +2,14 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
+require('react-hot-loader/patch')
+
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
-import clockIcon from '../counter/images/clock.png';
-import './hello-react.sass'
 import HelloExample from '../hello_example'
 
 const render = (Component) => {
-  ReactDOM.render(
-    <AppContainer>
-      <HelloExample/>
-    </AppContainer>,
+  ReactDOM.render(<HelloExample/>,
     document.getElementById('react-app')
   );
 };
