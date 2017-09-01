@@ -10,7 +10,7 @@ GIT
 
 GIT
   remote: https://github.com/rails/web-console.git
-  revision: ce985ebaf97a2c0754553153f05b3819f75786b7
+  revision: bc07283e844558ef05c9324b5e4876612d0a000d
   specs:
     web-console (3.5.1)
       actionview (>= 5.0)
@@ -18,11 +18,10 @@ GIT
       bindex (>= 0.4.0)
       railties (>= 5.0)
 
-GIT
-  remote: https://github.com/rails/webpacker.git
-  revision: 23ae404756e2bbe9badcd1a88c99a4e48f6d39f7
+PATH
+  remote: /Volumes/MacintoshHD/Users/gaurav/contributions/rails-contri/webpacker
   specs:
-    webpacker (2.0)
+    webpacker (3.0.0)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
@@ -67,8 +66,8 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.5.1)
-      public_suffix (~> 2.0, >= 2.0.2)
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
     bindex (0.5.0)
     builder (3.2.3)
@@ -121,7 +120,7 @@ GEM
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
     pg (0.21.0)
-    public_suffix (2.0.5)
+    public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
     rack-cors (1.0.1)
@@ -156,7 +155,7 @@ GEM
     rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (3.3.3)
+    redis (4.0.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.1)

@@ -9,7 +9,7 @@ import './hello.sass'
 const Hello = props => (
   <div className='react-app-wrapper'>
     <h5 className='hello-react'>
-      Hello! {props.name}!
+      Hello world! {props.name}!
     </h5>
   </div>
 )
