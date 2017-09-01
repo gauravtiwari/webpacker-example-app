@@ -18,8 +18,9 @@ GIT
       bindex (>= 0.4.0)
       railties (>= 5.0)
 
-PATH
-  remote: /Volumes/MacintoshHD/Users/gaurav/contributions/rails-contri/webpacker
+GIT
+  remote: https://github.com/rails/webpacker.git
+  revision: 446087afbf2b0bf42a353416eae630a9426448fb
   specs:
     webpacker (3.0.0)
       activesupport (>= 4.2)
