@@ -1,8 +1,7 @@
-// config/webpack/development.js
 const environment = require('./environment')
+const webpack = require('webpack')
 
 const config = environment.toWebpackConfig()
-config.devServer.watchContentBase = false
-config.devServer.disableHostCheck = true
-
+config.devtool = 'none'
+config.devServer.useLocalIp = true
 module.exports = config

@@ -1,2 +1,4 @@
-<%= javascript_pack_tag 'application' %>
-<%= javascript_pack_tag 'hello_react' %>
+<%= javascript_pack_tag('application') %>
+<%= render_react_component('hello_react', name: 'World') %>
+<%= render_react_component('counter') %>
+<%= stylesheet_pack_tag('hello_react') %>

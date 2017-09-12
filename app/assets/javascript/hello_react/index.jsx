@@ -1,17 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import logo from './react.png'
 import './style.sass'
 
-const staticImages = require.context('../images/', true)
-const imagePath = (name) => staticImages(name, true)
+class HelloReact extends Component {
+  componentDidMount() {
+    this._node.style.fontSize = '25px'
+  }
 
-const HelloReact = props => (
-  <div className="hello-react">
-    <p>Hello {props.name}!</p>
-    <img src={imagePath('./react.png')} className="react-logo" alt="React" />
-  </div>
-)
+  handleOnClick = () =>
+    console.log('I Clicked')
+
+  render () {
+    return (
+      <div className="hello-react">
+        <p ref={node => (this._node = node)}>Hello {this.props.name}!</p>
+        <img onClick={this.handleOnClick} src={logo} className="react-logo" alt="React" />
+      </div>
+    )
+  }
+}
 
 HelloReact.defaultProps = {
   name: 'React'

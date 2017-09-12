@@ -7,4 +7,20 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+import { renderReact } from 'hypernova-react'
+import HelloReact from './hello_react'
+import Counter from './counter'
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderReact(
+    'hello_react',
+    HelloReact,
+  )
+
+  renderReact(
+    'counter',
+    Counter,
+  )
+})
+
+console.log('i world')
