@@ -1,4 +1,7 @@
 Rails.application.configure do
+    # Verifies that versions and hashed value of the package contents in the project's package.json
+  config.webpacker.check_yarn_integrity = true
+
   # Make javascript_pack_tag load assets from webpack-dev-server.
   config.x.webpacker[:dev_server_host] = "http://localhost:8000"
 

@@ -21,7 +21,7 @@ GIT
 PATH
   remote: /Volumes/MacintoshHD/Users/gaurav/contributions/rails-contri/webpacker
   specs:
-    webpacker (3.0.1)
+    webpacker (3.0.2)
       activesupport (>= 4.2)
       rack-proxy (>= 0.6.1)
       railties (>= 4.2)
