@@ -10,7 +10,7 @@ default: &default
   # ['app/assets', 'engine/foo/app/assets']
   resolved_paths: []
 
-  # Reload manifest.json on all requests so we reload latest compiled packs
+  # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
   extensions:
@@ -32,13 +32,21 @@ default: &default
 
 development:
   <<: *default
-  compile: false
+  compile: true
 
+  # Reference: https://webpack.js.org/configuration/dev-server/
   dev_server:
+    https: false
     host: localhost
     port: 3035
-    hmr: false
-    https: false
+    public: localhost:3035
+    hmr: true
+    # Inline should be set to true if using HMR
+    inline: true
+    overlay: true
+    disable_host_check: true
+    use_local_ip: false
+    quiet: false
 
 test:
   <<: *default
@@ -50,7 +58,7 @@ test:
 production:
   <<: *default
 
-  # Production demands on precompilation of packs prior to booting for performance.
+  # Production depends on precompilation of packs prior to booting for performance.
   compile: false
 
   # Cache manifest.json for performance

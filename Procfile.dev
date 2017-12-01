@@ -1,4 +1,4 @@
 #web: bundle exec rails s -b 'ssl://127.0.0.1:5000?key=/Users/gaurav/webpacker-example-app/localhost.key&cert=/Users/gaurav/webpacker-example-app/localhost.crt'
 web: bundle exec rails s
-watcher: ./bin/webpack --watch --colors --progress
-# webpacker: ./bin/webpack-dev-server --inline=false
+# watcher: ./bin/webpack --watch --colors --progress
+webpacker: ./bin/webpack-dev-server
