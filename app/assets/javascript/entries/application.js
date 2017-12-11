@@ -7,20 +7,24 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import { renderReact } from 'hypernova-react'
+import { render } from 'react-dom'
+import React from 'react'
 import HelloReact from './hello_react'
-import Counter from './counter'
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderReact(
-    'hello_react',
-    HelloReact,
+  render(
+    <HelloReact />,
+    document.getElementById('hello_react')
   )
 
-  renderReact(
-    'counter',
-    Counter,
-  )
+
+  import(/* webpackChunkName: "counter" */ '../counter').then(({ default: Counter }) => {
+    render(
+      <Counter />,
+      document.getElementById('counter')
+    )
+  })
 })
 
-console.log('i world')
+console.log('hello there')

@@ -5,6 +5,4 @@
 import React, { Component } from 'react'
 import Hello from '../hello_react'
 
-global.HelloReact = Hello
-
 export default Hello

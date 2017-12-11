@@ -1,16 +1,24 @@
 version: '3'
 services:
+  postgres:
+    image: postgres:9.6-alpine
+  webpacker:
+    build: .
+    env_file:
+      - '.env.docker'
+    command: bundle exec webpack-dev-server
+    volumes:
+      - .:/webpacker-example-app
+    ports:
+      - '3035:3035'
   web:
     build: .
+    env_file:
+      - '.env.docker'
     command: bundle exec rails s
     volumes:
       - .:/webpacker-example-app
     ports:
-      - 3000:3000
-      - 3035:3035
+      - '3000:3000'
     depends_on:
       - postgres
-    env_file:
-      - '.env.docker'
-  postgres:
-    image: postgres:9.6-alpine

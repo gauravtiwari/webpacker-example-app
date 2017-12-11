@@ -44,6 +44,7 @@ development:
     # Inline should be set to true if using HMR
     inline: true
     overlay: true
+    pretty: true
     disable_host_check: true
     use_local_ip: false
     quiet: false

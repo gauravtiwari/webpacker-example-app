@@ -22,5 +22,4 @@ class Counter extends Component {
   }
 }
 
-global.Counter = Counter
 export default Counter

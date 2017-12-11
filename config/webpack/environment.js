@@ -13,7 +13,7 @@ cssLoader.options = Object.assign(cssLoader.options, {
   localIdentName: '[name]__[local]--[hash:base64:5]'
 })
 
-environment.loaders.insert('svg', // In your webpack config
+environment.loaders.prepend('svg', // In your webpack config
 {
   test: /\.svg$/,
   use: babelLoader.use.concat([
@@ -24,6 +24,6 @@ environment.loaders.insert('svg', // In your webpack config
       }
     }
   ])
-}, { after: 'babel' })
+})
 
 module.exports = environment

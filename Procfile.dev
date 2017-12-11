@@ -2,3 +2,4 @@
 web: bundle exec rails s
 # watcher: ./bin/webpack --watch --colors --progress
 webpacker: ./bin/webpack-dev-server
+# express: node ./config/webpack/server.js
